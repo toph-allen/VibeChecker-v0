@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  VibeChecker
+//  VibeChecker-iOS
 //
-//  Created by Toph Allen on 3/5/20.
+//  Created by Toph Allen on 3/19/20.
 //  Copyright © 2020 Toph Allen. All rights reserved.
 //
 

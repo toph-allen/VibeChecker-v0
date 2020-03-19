@@ -3,74 +3,134 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DC5CF0F24119D30004E090B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF0E24119D30004E090B /* AppDelegate.swift */; };
-		6DC5CF1124119D30004E090B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1024119D30004E090B /* SceneDelegate.swift */; };
-		6DC5CF1424119D30004E090B /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
-		6DC5CF1624119D30004E090B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1524119D30004E090B /* ContentView.swift */; };
-		6DC5CF1824119D33004E090B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1724119D33004E090B /* Assets.xcassets */; };
-		6DC5CF1B24119D33004E090B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1A24119D33004E090B /* Preview Assets.xcassets */; };
-		6DC5CF1E24119D33004E090B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1C24119D33004E090B /* LaunchScreen.storyboard */; };
-		6DC5CF2924119D33004E090B /* VibeCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF2824119D33004E090B /* VibeCheckerTests.swift */; };
-		6DC5CF3424119D33004E090B /* VibeCheckerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF3324119D33004E090B /* VibeCheckerUITests.swift */; };
-		6DD0DB482416CCD0008E234C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD0DB472416CCD0008E234C /* Song.swift */; };
+		6D019A83242415FC004CB2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019A82242415FC004CB2E2 /* AppDelegate.swift */; };
+		6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019A84242415FC004CB2E2 /* ContentView.swift */; };
+		6D019A88242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D019A86242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodeld */; };
+		6D019A8A242415FE004CB2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D019A89242415FE004CB2E2 /* Assets.xcassets */; };
+		6D019A8D242415FE004CB2E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D019A8C242415FE004CB2E2 /* Preview Assets.xcassets */; };
+		6D019A90242415FE004CB2E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D019A8E242415FE004CB2E2 /* Main.storyboard */; };
+		6D019A9C242415FE004CB2E2 /* VibeChecker_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019A9B242415FE004CB2E2 /* VibeChecker_macOSTests.swift */; };
+		6D019AA7242415FE004CB2E2 /* VibeChecker_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019AA6242415FE004CB2E2 /* VibeChecker_macOSUITests.swift */; };
+		6D019AB924241631004CB2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019AB824241631004CB2E2 /* AppDelegate.swift */; };
+		6D019ABB24241631004CB2E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ABA24241631004CB2E2 /* SceneDelegate.swift */; };
+		6D019ABE24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ABC24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld */; };
+		6D019AC024241631004CB2E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ABF24241631004CB2E2 /* ContentView.swift */; };
+		6D019AC224241632004CB2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D019AC124241632004CB2E2 /* Assets.xcassets */; };
+		6D019AC524241632004CB2E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D019AC424241632004CB2E2 /* Preview Assets.xcassets */; };
+		6D019AC824241632004CB2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D019AC624241632004CB2E2 /* LaunchScreen.storyboard */; };
+		6D019AD324241632004CB2E2 /* VibeChecker_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019AD224241632004CB2E2 /* VibeChecker_iOSTests.swift */; };
+		6D019ADE24241632004CB2E2 /* VibeChecker_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */; };
+		6D019AE924241665004CB2E2 /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
+		6D019AEA24241666004CB2E2 /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6DC5CF2524119D33004E090B /* PBXContainerItemProxy */ = {
+		6D019A98242415FE004CB2E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DC5CF0324119D30004E090B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6DC5CF0A24119D30004E090B;
-			remoteInfo = VibeChecker;
+			remoteGlobalIDString = 6D019A7F242415FC004CB2E2;
+			remoteInfo = "VibeChecker-macOS";
 		};
-		6DC5CF3024119D33004E090B /* PBXContainerItemProxy */ = {
+		6D019AA3242415FE004CB2E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6DC5CF0324119D30004E090B /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6DC5CF0A24119D30004E090B;
-			remoteInfo = VibeChecker;
+			remoteGlobalIDString = 6D019A7F242415FC004CB2E2;
+			remoteInfo = "VibeChecker-macOS";
+		};
+		6D019ACF24241632004CB2E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DC5CF0324119D30004E090B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D019AB524241631004CB2E2;
+			remoteInfo = "VibeChecker-iOS";
+		};
+		6D019ADA24241632004CB2E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6DC5CF0324119D30004E090B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D019AB524241631004CB2E2;
+			remoteInfo = "VibeChecker-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6DC5CF0B24119D30004E090B /* VibeChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibeChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DC5CF0E24119D30004E090B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6DC5CF1024119D30004E090B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6D019A80242415FC004CB2E2 /* VibeChecker-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VibeChecker-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D019A82242415FC004CB2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D019A84242415FC004CB2E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6D019A87242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibeChecker_macOS.xcdatamodel; sourceTree = "<group>"; };
+		6D019A89242415FE004CB2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D019A8C242415FE004CB2E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6D019A8F242415FE004CB2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6D019A91242415FE004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D019A92242415FE004CB2E2 /* VibeChecker_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VibeChecker_macOS.entitlements; sourceTree = "<group>"; };
+		6D019A97242415FE004CB2E2 /* VibeChecker-macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VibeChecker-macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D019A9B242415FE004CB2E2 /* VibeChecker_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_macOSTests.swift; sourceTree = "<group>"; };
+		6D019A9D242415FE004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D019AA2242415FE004CB2E2 /* VibeChecker-macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VibeChecker-macOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D019AA6242415FE004CB2E2 /* VibeChecker_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_macOSUITests.swift; sourceTree = "<group>"; };
+		6D019AA8242415FE004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D019AB624241631004CB2E2 /* VibeChecker-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VibeChecker-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D019AB824241631004CB2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D019ABA24241631004CB2E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6D019ABD24241631004CB2E2 /* VibeChecker_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibeChecker_iOS.xcdatamodel; sourceTree = "<group>"; };
+		6D019ABF24241631004CB2E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6D019AC124241632004CB2E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6D019AC424241632004CB2E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6D019AC724241632004CB2E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6D019AC924241632004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D019ACE24241632004CB2E2 /* VibeChecker-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VibeChecker-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D019AD224241632004CB2E2 /* VibeChecker_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_iOSTests.swift; sourceTree = "<group>"; };
+		6D019AD424241632004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D019AD924241632004CB2E2 /* VibeChecker-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VibeChecker-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_iOSUITests.swift; sourceTree = "<group>"; };
+		6D019ADF24241632004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D62D7D02416F743007A0346 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6DC5CF1324119D30004E090B /* VibeChecker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibeChecker.xcdatamodel; sourceTree = "<group>"; };
-		6DC5CF1524119D30004E090B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6DC5CF1724119D33004E090B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6DC5CF1A24119D33004E090B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6DC5CF1D24119D33004E090B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6DC5CF1F24119D33004E090B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DC5CF2424119D33004E090B /* VibeCheckerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VibeCheckerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DC5CF2824119D33004E090B /* VibeCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeCheckerTests.swift; sourceTree = "<group>"; };
-		6DC5CF2A24119D33004E090B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DC5CF2F24119D33004E090B /* VibeCheckerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VibeCheckerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DC5CF3324119D33004E090B /* VibeCheckerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeCheckerUITests.swift; sourceTree = "<group>"; };
-		6DC5CF3524119D33004E090B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DD0DB472416CCD0008E234C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6DC5CF0824119D30004E090B /* Frameworks */ = {
+		6D019A7D242415FC004CB2E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DC5CF2124119D33004E090B /* Frameworks */ = {
+		6D019A94242415FE004CB2E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DC5CF2C24119D33004E090B /* Frameworks */ = {
+		6D019A9F242415FE004CB2E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019AB324241631004CB2E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019ACB24241632004CB2E2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019AD624241632004CB2E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -80,12 +140,107 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D019A81242415FC004CB2E2 /* VibeChecker-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				6D019A82242415FC004CB2E2 /* AppDelegate.swift */,
+				6D019A84242415FC004CB2E2 /* ContentView.swift */,
+				6D019A89242415FE004CB2E2 /* Assets.xcassets */,
+				6D019A8E242415FE004CB2E2 /* Main.storyboard */,
+				6D019A91242415FE004CB2E2 /* Info.plist */,
+				6D019A92242415FE004CB2E2 /* VibeChecker_macOS.entitlements */,
+				6D019A86242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodeld */,
+				6D019A8B242415FE004CB2E2 /* Preview Content */,
+			);
+			path = "VibeChecker-macOS";
+			sourceTree = "<group>";
+		};
+		6D019A8B242415FE004CB2E2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6D019A8C242415FE004CB2E2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6D019A9A242415FE004CB2E2 /* VibeChecker-macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				6D019A9B242415FE004CB2E2 /* VibeChecker_macOSTests.swift */,
+				6D019A9D242415FE004CB2E2 /* Info.plist */,
+			);
+			path = "VibeChecker-macOSTests";
+			sourceTree = "<group>";
+		};
+		6D019AA5242415FE004CB2E2 /* VibeChecker-macOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6D019AA6242415FE004CB2E2 /* VibeChecker_macOSUITests.swift */,
+				6D019AA8242415FE004CB2E2 /* Info.plist */,
+			);
+			path = "VibeChecker-macOSUITests";
+			sourceTree = "<group>";
+		};
+		6D019AB724241631004CB2E2 /* VibeChecker-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6D019AB824241631004CB2E2 /* AppDelegate.swift */,
+				6D019ABA24241631004CB2E2 /* SceneDelegate.swift */,
+				6D019ABF24241631004CB2E2 /* ContentView.swift */,
+				6D019AC124241632004CB2E2 /* Assets.xcassets */,
+				6D019AC624241632004CB2E2 /* LaunchScreen.storyboard */,
+				6D019AC924241632004CB2E2 /* Info.plist */,
+				6D019ABC24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld */,
+				6D019AC324241632004CB2E2 /* Preview Content */,
+			);
+			path = "VibeChecker-iOS";
+			sourceTree = "<group>";
+		};
+		6D019AC324241632004CB2E2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6D019AC424241632004CB2E2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6D019AD124241632004CB2E2 /* VibeChecker-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				6D019AD224241632004CB2E2 /* VibeChecker_iOSTests.swift */,
+				6D019AD424241632004CB2E2 /* Info.plist */,
+			);
+			path = "VibeChecker-iOSTests";
+			sourceTree = "<group>";
+		};
+		6D019ADC24241632004CB2E2 /* VibeChecker-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */,
+				6D019ADF24241632004CB2E2 /* Info.plist */,
+			);
+			path = "VibeChecker-iOSUITests";
+			sourceTree = "<group>";
+		};
+		6D019AEB24241695004CB2E2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		6DC5CF0224119D30004E090B = {
 			isa = PBXGroup;
 			children = (
-				6DC5CF0D24119D30004E090B /* VibeChecker */,
-				6DC5CF2724119D33004E090B /* VibeCheckerTests */,
-				6DC5CF3224119D33004E090B /* VibeCheckerUITests */,
+				6D62D7D02416F743007A0346 /* README.md */,
+				6D019AEB24241695004CB2E2 /* Shared */,
+				6D019A81242415FC004CB2E2 /* VibeChecker-macOS */,
+				6D019A9A242415FE004CB2E2 /* VibeChecker-macOSTests */,
+				6D019AA5242415FE004CB2E2 /* VibeChecker-macOSUITests */,
+				6D019AB724241631004CB2E2 /* VibeChecker-iOS */,
+				6D019AD124241632004CB2E2 /* VibeChecker-iOSTests */,
+				6D019ADC24241632004CB2E2 /* VibeChecker-iOSUITests */,
 				6DC5CF0C24119D30004E090B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,117 +248,123 @@
 		6DC5CF0C24119D30004E090B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6DC5CF0B24119D30004E090B /* VibeChecker.app */,
-				6DC5CF2424119D33004E090B /* VibeCheckerTests.xctest */,
-				6DC5CF2F24119D33004E090B /* VibeCheckerUITests.xctest */,
+				6D019A80242415FC004CB2E2 /* VibeChecker-macOS.app */,
+				6D019A97242415FE004CB2E2 /* VibeChecker-macOSTests.xctest */,
+				6D019AA2242415FE004CB2E2 /* VibeChecker-macOSUITests.xctest */,
+				6D019AB624241631004CB2E2 /* VibeChecker-iOS.app */,
+				6D019ACE24241632004CB2E2 /* VibeChecker-iOSTests.xctest */,
+				6D019AD924241632004CB2E2 /* VibeChecker-iOSUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		6DC5CF0D24119D30004E090B /* VibeChecker */ = {
-			isa = PBXGroup;
-			children = (
-				6DD0DB462416CC9D008E234C /* Models */,
-				6DC5CF0E24119D30004E090B /* AppDelegate.swift */,
-				6DC5CF1024119D30004E090B /* SceneDelegate.swift */,
-				6DC5CF1524119D30004E090B /* ContentView.swift */,
-				6DC5CF1724119D33004E090B /* Assets.xcassets */,
-				6DC5CF1C24119D33004E090B /* LaunchScreen.storyboard */,
-				6DC5CF1F24119D33004E090B /* Info.plist */,
-				6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */,
-				6DC5CF1924119D33004E090B /* Preview Content */,
-			);
-			path = VibeChecker;
-			sourceTree = "<group>";
-		};
-		6DC5CF1924119D33004E090B /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				6DC5CF1A24119D33004E090B /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		6DC5CF2724119D33004E090B /* VibeCheckerTests */ = {
-			isa = PBXGroup;
-			children = (
-				6DC5CF2824119D33004E090B /* VibeCheckerTests.swift */,
-				6DC5CF2A24119D33004E090B /* Info.plist */,
-			);
-			path = VibeCheckerTests;
-			sourceTree = "<group>";
-		};
-		6DC5CF3224119D33004E090B /* VibeCheckerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				6DC5CF3324119D33004E090B /* VibeCheckerUITests.swift */,
-				6DC5CF3524119D33004E090B /* Info.plist */,
-			);
-			path = VibeCheckerUITests;
-			sourceTree = "<group>";
-		};
-		6DD0DB462416CC9D008E234C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6DD0DB472416CCD0008E234C /* Song.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6DC5CF0A24119D30004E090B /* VibeChecker */ = {
+		6D019A7F242415FC004CB2E2 /* VibeChecker-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DC5CF3824119D33004E090B /* Build configuration list for PBXNativeTarget "VibeChecker" */;
+			buildConfigurationList = 6D019AA9242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOS" */;
 			buildPhases = (
-				6DC5CF0724119D30004E090B /* Sources */,
-				6DC5CF0824119D30004E090B /* Frameworks */,
-				6DC5CF0924119D30004E090B /* Resources */,
+				6D019A7C242415FC004CB2E2 /* Sources */,
+				6D019A7D242415FC004CB2E2 /* Frameworks */,
+				6D019A7E242415FC004CB2E2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = VibeChecker;
-			productName = VibeChecker;
-			productReference = 6DC5CF0B24119D30004E090B /* VibeChecker.app */;
+			name = "VibeChecker-macOS";
+			productName = "VibeChecker-macOS";
+			productReference = 6D019A80242415FC004CB2E2 /* VibeChecker-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6DC5CF2324119D33004E090B /* VibeCheckerTests */ = {
+		6D019A96242415FE004CB2E2 /* VibeChecker-macOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DC5CF3B24119D33004E090B /* Build configuration list for PBXNativeTarget "VibeCheckerTests" */;
+			buildConfigurationList = 6D019AAC242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOSTests" */;
 			buildPhases = (
-				6DC5CF2024119D33004E090B /* Sources */,
-				6DC5CF2124119D33004E090B /* Frameworks */,
-				6DC5CF2224119D33004E090B /* Resources */,
+				6D019A93242415FE004CB2E2 /* Sources */,
+				6D019A94242415FE004CB2E2 /* Frameworks */,
+				6D019A95242415FE004CB2E2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6DC5CF2624119D33004E090B /* PBXTargetDependency */,
+				6D019A99242415FE004CB2E2 /* PBXTargetDependency */,
 			);
-			name = VibeCheckerTests;
-			productName = VibeCheckerTests;
-			productReference = 6DC5CF2424119D33004E090B /* VibeCheckerTests.xctest */;
+			name = "VibeChecker-macOSTests";
+			productName = "VibeChecker-macOSTests";
+			productReference = 6D019A97242415FE004CB2E2 /* VibeChecker-macOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6DC5CF2E24119D33004E090B /* VibeCheckerUITests */ = {
+		6D019AA1242415FE004CB2E2 /* VibeChecker-macOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DC5CF3E24119D33004E090B /* Build configuration list for PBXNativeTarget "VibeCheckerUITests" */;
+			buildConfigurationList = 6D019AAF242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOSUITests" */;
 			buildPhases = (
-				6DC5CF2B24119D33004E090B /* Sources */,
-				6DC5CF2C24119D33004E090B /* Frameworks */,
-				6DC5CF2D24119D33004E090B /* Resources */,
+				6D019A9E242415FE004CB2E2 /* Sources */,
+				6D019A9F242415FE004CB2E2 /* Frameworks */,
+				6D019AA0242415FE004CB2E2 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6DC5CF3124119D33004E090B /* PBXTargetDependency */,
+				6D019AA4242415FE004CB2E2 /* PBXTargetDependency */,
 			);
-			name = VibeCheckerUITests;
-			productName = VibeCheckerUITests;
-			productReference = 6DC5CF2F24119D33004E090B /* VibeCheckerUITests.xctest */;
+			name = "VibeChecker-macOSUITests";
+			productName = "VibeChecker-macOSUITests";
+			productReference = 6D019AA2242415FE004CB2E2 /* VibeChecker-macOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		6D019AB524241631004CB2E2 /* VibeChecker-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D019AE024241633004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-iOS" */;
+			buildPhases = (
+				6D019AB224241631004CB2E2 /* Sources */,
+				6D019AB324241631004CB2E2 /* Frameworks */,
+				6D019AB424241631004CB2E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VibeChecker-iOS";
+			productName = "VibeChecker-iOS";
+			productReference = 6D019AB624241631004CB2E2 /* VibeChecker-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6D019ACD24241632004CB2E2 /* VibeChecker-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D019AE324241633004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-iOSTests" */;
+			buildPhases = (
+				6D019ACA24241632004CB2E2 /* Sources */,
+				6D019ACB24241632004CB2E2 /* Frameworks */,
+				6D019ACC24241632004CB2E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D019AD024241632004CB2E2 /* PBXTargetDependency */,
+			);
+			name = "VibeChecker-iOSTests";
+			productName = "VibeChecker-iOSTests";
+			productReference = 6D019ACE24241632004CB2E2 /* VibeChecker-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6D019AD824241632004CB2E2 /* VibeChecker-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D019AE624241633004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-iOSUITests" */;
+			buildPhases = (
+				6D019AD524241632004CB2E2 /* Sources */,
+				6D019AD624241632004CB2E2 /* Frameworks */,
+				6D019AD724241632004CB2E2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6D019ADB24241632004CB2E2 /* PBXTargetDependency */,
+			);
+			name = "VibeChecker-iOSUITests";
+			productName = "VibeChecker-iOSUITests";
+			productReference = 6D019AD924241632004CB2E2 /* VibeChecker-iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -212,25 +373,36 @@
 		6DC5CF0324119D30004E090B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Toph Allen";
 				TargetAttributes = {
-					6DC5CF0A24119D30004E090B = {
-						CreatedOnToolsVersion = 11.3.1;
+					6D019A7F242415FC004CB2E2 = {
+						CreatedOnToolsVersion = 11.4;
 					};
-					6DC5CF2324119D33004E090B = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 6DC5CF0A24119D30004E090B;
+					6D019A96242415FE004CB2E2 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 6D019A7F242415FC004CB2E2;
 					};
-					6DC5CF2E24119D33004E090B = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 6DC5CF0A24119D30004E090B;
+					6D019AA1242415FE004CB2E2 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 6D019A7F242415FC004CB2E2;
+					};
+					6D019AB524241631004CB2E2 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					6D019ACD24241632004CB2E2 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 6D019AB524241631004CB2E2;
+					};
+					6D019AD824241632004CB2E2 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 6D019AB524241631004CB2E2;
 					};
 				};
 			};
 			buildConfigurationList = 6DC5CF0624119D30004E090B /* Build configuration list for PBXProject "VibeChecker" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -242,32 +414,59 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6DC5CF0A24119D30004E090B /* VibeChecker */,
-				6DC5CF2324119D33004E090B /* VibeCheckerTests */,
-				6DC5CF2E24119D33004E090B /* VibeCheckerUITests */,
+				6D019A7F242415FC004CB2E2 /* VibeChecker-macOS */,
+				6D019A96242415FE004CB2E2 /* VibeChecker-macOSTests */,
+				6D019AA1242415FE004CB2E2 /* VibeChecker-macOSUITests */,
+				6D019AB524241631004CB2E2 /* VibeChecker-iOS */,
+				6D019ACD24241632004CB2E2 /* VibeChecker-iOSTests */,
+				6D019AD824241632004CB2E2 /* VibeChecker-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6DC5CF0924119D30004E090B /* Resources */ = {
+		6D019A7E242415FC004CB2E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC5CF1E24119D33004E090B /* LaunchScreen.storyboard in Resources */,
-				6DC5CF1B24119D33004E090B /* Preview Assets.xcassets in Resources */,
-				6DC5CF1824119D33004E090B /* Assets.xcassets in Resources */,
+				6D019A90242415FE004CB2E2 /* Main.storyboard in Resources */,
+				6D019A8D242415FE004CB2E2 /* Preview Assets.xcassets in Resources */,
+				6D019A8A242415FE004CB2E2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DC5CF2224119D33004E090B /* Resources */ = {
+		6D019A95242415FE004CB2E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DC5CF2D24119D33004E090B /* Resources */ = {
+		6D019AA0242415FE004CB2E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019AB424241631004CB2E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D019AC824241632004CB2E2 /* LaunchScreen.storyboard in Resources */,
+				6D019AC524241632004CB2E2 /* Preview Assets.xcassets in Resources */,
+				6D019AC224241632004CB2E2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019ACC24241632004CB2E2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019AD724241632004CB2E2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,54 +476,99 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6DC5CF0724119D30004E090B /* Sources */ = {
+		6D019A7C242415FC004CB2E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC5CF0F24119D30004E090B /* AppDelegate.swift in Sources */,
-				6DC5CF1124119D30004E090B /* SceneDelegate.swift in Sources */,
-				6DC5CF1624119D30004E090B /* ContentView.swift in Sources */,
-				6DC5CF1424119D30004E090B /* VibeChecker.xcdatamodeld in Sources */,
-				6DD0DB482416CCD0008E234C /* Song.swift in Sources */,
+				6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */,
+				6D019A83242415FC004CB2E2 /* AppDelegate.swift in Sources */,
+				6D019A88242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodeld in Sources */,
+				6D019AE924241665004CB2E2 /* VibeChecker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DC5CF2024119D33004E090B /* Sources */ = {
+		6D019A93242415FE004CB2E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC5CF2924119D33004E090B /* VibeCheckerTests.swift in Sources */,
+				6D019A9C242415FE004CB2E2 /* VibeChecker_macOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DC5CF2B24119D33004E090B /* Sources */ = {
+		6D019A9E242415FE004CB2E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC5CF3424119D33004E090B /* VibeCheckerUITests.swift in Sources */,
+				6D019AA7242415FE004CB2E2 /* VibeChecker_macOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019AB224241631004CB2E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D019AB924241631004CB2E2 /* AppDelegate.swift in Sources */,
+				6D019ABB24241631004CB2E2 /* SceneDelegate.swift in Sources */,
+				6D019AEA24241666004CB2E2 /* VibeChecker.xcdatamodeld in Sources */,
+				6D019AC024241631004CB2E2 /* ContentView.swift in Sources */,
+				6D019ABE24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019ACA24241632004CB2E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D019AD324241632004CB2E2 /* VibeChecker_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D019AD524241632004CB2E2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D019ADE24241632004CB2E2 /* VibeChecker_iOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6DC5CF2624119D33004E090B /* PBXTargetDependency */ = {
+		6D019A99242415FE004CB2E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6DC5CF0A24119D30004E090B /* VibeChecker */;
-			targetProxy = 6DC5CF2524119D33004E090B /* PBXContainerItemProxy */;
+			target = 6D019A7F242415FC004CB2E2 /* VibeChecker-macOS */;
+			targetProxy = 6D019A98242415FE004CB2E2 /* PBXContainerItemProxy */;
 		};
-		6DC5CF3124119D33004E090B /* PBXTargetDependency */ = {
+		6D019AA4242415FE004CB2E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6DC5CF0A24119D30004E090B /* VibeChecker */;
-			targetProxy = 6DC5CF3024119D33004E090B /* PBXContainerItemProxy */;
+			target = 6D019A7F242415FC004CB2E2 /* VibeChecker-macOS */;
+			targetProxy = 6D019AA3242415FE004CB2E2 /* PBXContainerItemProxy */;
+		};
+		6D019AD024241632004CB2E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D019AB524241631004CB2E2 /* VibeChecker-iOS */;
+			targetProxy = 6D019ACF24241632004CB2E2 /* PBXContainerItemProxy */;
+		};
+		6D019ADB24241632004CB2E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D019AB524241631004CB2E2 /* VibeChecker-iOS */;
+			targetProxy = 6D019ADA24241632004CB2E2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6DC5CF1C24119D33004E090B /* LaunchScreen.storyboard */ = {
+		6D019A8E242415FE004CB2E2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6DC5CF1D24119D33004E090B /* Base */,
+				6D019A8F242415FE004CB2E2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6D019AC624241632004CB2E2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6D019AC724241632004CB2E2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -332,6 +576,272 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6D019AAA242415FE004CB2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "VibeChecker-macOS/VibeChecker_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker-macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "VibeChecker-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6D019AAB242415FE004CB2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "VibeChecker-macOS/VibeChecker_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker-macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "VibeChecker-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6D019AAD242415FE004CB2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-macOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibeChecker-macOS.app/Contents/MacOS/VibeChecker-macOS";
+			};
+			name = Debug;
+		};
+		6D019AAE242415FE004CB2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-macOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibeChecker-macOS.app/Contents/MacOS/VibeChecker-macOS";
+			};
+			name = Release;
+		};
+		6D019AB0242415FE004CB2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-macOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "VibeChecker-macOS";
+			};
+			name = Debug;
+		};
+		6D019AB1242415FE004CB2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-macOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "VibeChecker-macOS";
+			};
+			name = Release;
+		};
+		6D019AE124241633004CB2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "VibeChecker-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6D019AE224241633004CB2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker-iOS/Preview Content\"";
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "VibeChecker-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6D019AE424241633004CB2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibeChecker-iOS.app/VibeChecker-iOS";
+			};
+			name = Debug;
+		};
+		6D019AE524241633004CB2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibeChecker-iOS.app/VibeChecker-iOS";
+			};
+			name = Release;
+		};
+		6D019AE724241633004CB2E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VibeChecker-iOS";
+			};
+			name = Debug;
+		};
+		6D019AE824241633004CB2E2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 57853V5JA8;
+				INFOPLIST_FILE = "VibeChecker-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.toph.VibeChecker-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VibeChecker-iOS";
+			};
+			name = Release;
+		};
 		6DC5CF3624119D33004E090B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -446,133 +956,63 @@
 			};
 			name = Release;
 		};
-		6DC5CF3924119D33004E090B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker/Preview Content\"";
-				DEVELOPMENT_TEAM = 57853V5JA8;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = VibeChecker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.toph.VibeChecker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6DC5CF3A24119D33004E090B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker/Preview Content\"";
-				DEVELOPMENT_TEAM = 57853V5JA8;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = VibeChecker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.toph.VibeChecker;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		6DC5CF3C24119D33004E090B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 57853V5JA8;
-				INFOPLIST_FILE = VibeCheckerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.toph.VibeCheckerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibeChecker.app/VibeChecker";
-			};
-			name = Debug;
-		};
-		6DC5CF3D24119D33004E090B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 57853V5JA8;
-				INFOPLIST_FILE = VibeCheckerTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.toph.VibeCheckerTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VibeChecker.app/VibeChecker";
-			};
-			name = Release;
-		};
-		6DC5CF3F24119D33004E090B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 57853V5JA8;
-				INFOPLIST_FILE = VibeCheckerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.toph.VibeCheckerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VibeChecker;
-			};
-			name = Debug;
-		};
-		6DC5CF4024119D33004E090B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 57853V5JA8;
-				INFOPLIST_FILE = VibeCheckerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.toph.VibeCheckerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = VibeChecker;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6D019AA9242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D019AAA242415FE004CB2E2 /* Debug */,
+				6D019AAB242415FE004CB2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D019AAC242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D019AAD242415FE004CB2E2 /* Debug */,
+				6D019AAE242415FE004CB2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D019AAF242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D019AB0242415FE004CB2E2 /* Debug */,
+				6D019AB1242415FE004CB2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D019AE024241633004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D019AE124241633004CB2E2 /* Debug */,
+				6D019AE224241633004CB2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D019AE324241633004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D019AE424241633004CB2E2 /* Debug */,
+				6D019AE524241633004CB2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D019AE624241633004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D019AE724241633004CB2E2 /* Debug */,
+				6D019AE824241633004CB2E2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6DC5CF0624119D30004E090B /* Build configuration list for PBXProject "VibeChecker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -582,36 +1022,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6DC5CF3824119D33004E090B /* Build configuration list for PBXNativeTarget "VibeChecker" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6DC5CF3924119D33004E090B /* Debug */,
-				6DC5CF3A24119D33004E090B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6DC5CF3B24119D33004E090B /* Build configuration list for PBXNativeTarget "VibeCheckerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6DC5CF3C24119D33004E090B /* Debug */,
-				6DC5CF3D24119D33004E090B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6DC5CF3E24119D33004E090B /* Build configuration list for PBXNativeTarget "VibeCheckerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6DC5CF3F24119D33004E090B /* Debug */,
-				6DC5CF4024119D33004E090B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		6D019A86242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D019A87242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodel */,
+			);
+			currentVersion = 6D019A87242415FC004CB2E2 /* VibeChecker_macOS.xcdatamodel */;
+			path = VibeChecker_macOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		6D019ABC24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D019ABD24241631004CB2E2 /* VibeChecker_iOS.xcdatamodel */,
+			);
+			currentVersion = 6D019ABD24241631004CB2E2 /* VibeChecker_iOS.xcdatamodel */;
+			path = VibeChecker_iOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
