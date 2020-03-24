@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E264b" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Album" representedClassName="Album" syncable="YES">
+    <entity name="Album" representedClassName="Album" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="year" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="albums" inverseEntity="Artist"/>
         <relationship name="tracks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Track" inverseName="album" inverseEntity="Track"/>
     </entity>
-    <entity name="Artist" representedClassName="Artist" syncable="YES">
+    <entity name="Artist" representedClassName="Artist" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="albums" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Album" inverseName="artist" inverseEntity="Album"/>
         <relationship name="tracks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="artist" inverseEntity="Track"/>
     </entity>
-    <entity name="Playlist" representedClassName="Playlist" syncable="YES">
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="playlistTracks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistTracks" inverseName="playlist" inverseEntity="PlaylistTracks"/>
     </entity>
-    <entity name="PlaylistTracks" representedClassName="PlaylistTracks" syncable="YES">
+    <entity name="PlaylistTracks" representedClassName="PlaylistTracks" syncable="YES" codeGenerationType="category">
         <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="playlistTracks" inverseEntity="Playlist"/>
         <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="playlists" inverseEntity="Track"/>
     </entity>
-    <entity name="Track" representedClassName=".Track" syncable="YES">
+    <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="trackNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -30,7 +30,7 @@
         <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistTracks" inverseName="track" inverseEntity="PlaylistTracks"/>
         <relationship name="vibes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vibe" inverseName="tracks" inverseEntity="Vibe"/>
     </entity>
-    <entity name="Vibe" representedClassName="Vibe" syncable="YES">
+    <entity name="Vibe" representedClassName="Vibe" syncable="YES" codeGenerationType="category">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
