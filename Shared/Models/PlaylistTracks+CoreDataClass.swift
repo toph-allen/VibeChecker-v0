@@ -1,8 +1,8 @@
 //
 //  PlaylistTracks+CoreDataClass.swift
-//  VibeChecker
+//  VibeChecker-macOS
 //
-//  Created by Toph Allen on 3/23/20.
+//  Created by Toph Allen on 3/25/20.
 //  Copyright © 2020 Toph Allen. All rights reserved.
 //
 //

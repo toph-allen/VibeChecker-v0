@@ -25,19 +25,19 @@
 		6D019ADE24241632004CB2E2 /* VibeChecker_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */; };
 		6D019AE924241665004CB2E2 /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
 		6D019AEA24241666004CB2E2 /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
-		6D53736124294A8300D4BB7D /* Playlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735524294A8300D4BB7D /* Playlist+CoreDataClass.swift */; };
-		6D53736224294A8300D4BB7D /* Playlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735524294A8300D4BB7D /* Playlist+CoreDataClass.swift */; };
-		6D53736524294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735724294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift */; };
-		6D53736624294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735724294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift */; };
-		6D53736924294A8300D4BB7D /* Track+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735924294A8300D4BB7D /* Track+CoreDataClass.swift */; };
-		6D53736A24294A8300D4BB7D /* Track+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735924294A8300D4BB7D /* Track+CoreDataClass.swift */; };
-		6D53736D24294A8300D4BB7D /* Album+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735B24294A8300D4BB7D /* Album+CoreDataClass.swift */; };
-		6D53736E24294A8300D4BB7D /* Album+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735B24294A8300D4BB7D /* Album+CoreDataClass.swift */; };
-		6D53737124294A8300D4BB7D /* Artist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735D24294A8300D4BB7D /* Artist+CoreDataClass.swift */; };
-		6D53737224294A8300D4BB7D /* Artist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735D24294A8300D4BB7D /* Artist+CoreDataClass.swift */; };
-		6D53737524294A8300D4BB7D /* Vibe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735F24294A8300D4BB7D /* Vibe+CoreDataClass.swift */; };
-		6D53737624294A8300D4BB7D /* Vibe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53735F24294A8300D4BB7D /* Vibe+CoreDataClass.swift */; };
 		6D53737B242958CE00D4BB7D /* iTunesLibraryObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53737A242958CE00D4BB7D /* iTunesLibraryObjects.swift */; };
+		6D90E5B7242BF21A000BC021 /* Playlist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5AB242BF21A000BC021 /* Playlist+CoreDataClass.swift */; };
+		6D90E5B8242BF21A000BC021 /* Playlist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5AC242BF21A000BC021 /* Playlist+CoreDataProperties.swift */; };
+		6D90E5B9242BF21A000BC021 /* Artist+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5AD242BF21A000BC021 /* Artist+CoreDataClass.swift */; };
+		6D90E5BA242BF21A000BC021 /* Artist+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5AE242BF21A000BC021 /* Artist+CoreDataProperties.swift */; };
+		6D90E5BB242BF21A000BC021 /* PlaylistTracks+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5AF242BF21A000BC021 /* PlaylistTracks+CoreDataClass.swift */; };
+		6D90E5BC242BF21A000BC021 /* PlaylistTracks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B0242BF21A000BC021 /* PlaylistTracks+CoreDataProperties.swift */; };
+		6D90E5BD242BF21A000BC021 /* Track+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B1242BF21A000BC021 /* Track+CoreDataClass.swift */; };
+		6D90E5BE242BF21A000BC021 /* Track+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B2242BF21A000BC021 /* Track+CoreDataProperties.swift */; };
+		6D90E5BF242BF21A000BC021 /* Vibe+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B3242BF21A000BC021 /* Vibe+CoreDataClass.swift */; };
+		6D90E5C0242BF21A000BC021 /* Vibe+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B4242BF21A000BC021 /* Vibe+CoreDataProperties.swift */; };
+		6D90E5C1242BF21A000BC021 /* Album+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B5242BF21A000BC021 /* Album+CoreDataClass.swift */; };
+		6D90E5C2242BF21A000BC021 /* Album+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D90E5B6242BF21A000BC021 /* Album+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,14 +101,20 @@
 		6D019AD924241632004CB2E2 /* VibeChecker-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VibeChecker-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_iOSUITests.swift; sourceTree = "<group>"; };
 		6D019ADF24241632004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6D53735524294A8300D4BB7D /* Playlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6D53735724294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistTracks+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6D53735924294A8300D4BB7D /* Track+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6D53735B24294A8300D4BB7D /* Album+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6D53735D24294A8300D4BB7D /* Artist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataClass.swift"; sourceTree = "<group>"; };
-		6D53735F24294A8300D4BB7D /* Vibe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vibe+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6D53737A242958CE00D4BB7D /* iTunesLibraryObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesLibraryObjects.swift; sourceTree = "<group>"; };
 		6D62D7D02416F743007A0346 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6D90E5AB242BF21A000BC021 /* Playlist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D90E5AC242BF21A000BC021 /* Playlist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D90E5AD242BF21A000BC021 /* Artist+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D90E5AE242BF21A000BC021 /* Artist+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Artist+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D90E5AF242BF21A000BC021 /* PlaylistTracks+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistTracks+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D90E5B0242BF21A000BC021 /* PlaylistTracks+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistTracks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D90E5B1242BF21A000BC021 /* Track+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D90E5B2242BF21A000BC021 /* Track+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D90E5B3242BF21A000BC021 /* Vibe+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vibe+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D90E5B4242BF21A000BC021 /* Vibe+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Vibe+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6D90E5B5242BF21A000BC021 /* Album+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6D90E5B6242BF21A000BC021 /* Album+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Album+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6DC5CF1324119D30004E090B /* VibeChecker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibeChecker.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,12 +257,18 @@
 		6D5373792429587000D4BB7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6D53735524294A8300D4BB7D /* Playlist+CoreDataClass.swift */,
-				6D53735724294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift */,
-				6D53735924294A8300D4BB7D /* Track+CoreDataClass.swift */,
-				6D53735B24294A8300D4BB7D /* Album+CoreDataClass.swift */,
-				6D53735D24294A8300D4BB7D /* Artist+CoreDataClass.swift */,
-				6D53735F24294A8300D4BB7D /* Vibe+CoreDataClass.swift */,
+				6D90E5AB242BF21A000BC021 /* Playlist+CoreDataClass.swift */,
+				6D90E5AC242BF21A000BC021 /* Playlist+CoreDataProperties.swift */,
+				6D90E5AD242BF21A000BC021 /* Artist+CoreDataClass.swift */,
+				6D90E5AE242BF21A000BC021 /* Artist+CoreDataProperties.swift */,
+				6D90E5AF242BF21A000BC021 /* PlaylistTracks+CoreDataClass.swift */,
+				6D90E5B0242BF21A000BC021 /* PlaylistTracks+CoreDataProperties.swift */,
+				6D90E5B1242BF21A000BC021 /* Track+CoreDataClass.swift */,
+				6D90E5B2242BF21A000BC021 /* Track+CoreDataProperties.swift */,
+				6D90E5B3242BF21A000BC021 /* Vibe+CoreDataClass.swift */,
+				6D90E5B4242BF21A000BC021 /* Vibe+CoreDataProperties.swift */,
+				6D90E5B5242BF21A000BC021 /* Album+CoreDataClass.swift */,
+				6D90E5B6242BF21A000BC021 /* Album+CoreDataProperties.swift */,
 				6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */,
 			);
 			path = Models;
@@ -512,16 +524,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D90E5BF242BF21A000BC021 /* Vibe+CoreDataClass.swift in Sources */,
+				6D90E5C0242BF21A000BC021 /* Vibe+CoreDataProperties.swift in Sources */,
 				6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */,
-				6D53736524294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift in Sources */,
-				6D53736924294A8300D4BB7D /* Track+CoreDataClass.swift in Sources */,
 				6D019A83242415FC004CB2E2 /* AppDelegate.swift in Sources */,
-				6D53736D24294A8300D4BB7D /* Album+CoreDataClass.swift in Sources */,
 				6D019AE924241665004CB2E2 /* VibeChecker.xcdatamodeld in Sources */,
-				6D53736124294A8300D4BB7D /* Playlist+CoreDataClass.swift in Sources */,
-				6D53737524294A8300D4BB7D /* Vibe+CoreDataClass.swift in Sources */,
-				6D53737124294A8300D4BB7D /* Artist+CoreDataClass.swift in Sources */,
+				6D90E5C2242BF21A000BC021 /* Album+CoreDataProperties.swift in Sources */,
+				6D90E5BC242BF21A000BC021 /* PlaylistTracks+CoreDataProperties.swift in Sources */,
+				6D90E5B9242BF21A000BC021 /* Artist+CoreDataClass.swift in Sources */,
+				6D90E5BE242BF21A000BC021 /* Track+CoreDataProperties.swift in Sources */,
+				6D90E5C1242BF21A000BC021 /* Album+CoreDataClass.swift in Sources */,
+				6D90E5BA242BF21A000BC021 /* Artist+CoreDataProperties.swift in Sources */,
+				6D90E5BB242BF21A000BC021 /* PlaylistTracks+CoreDataClass.swift in Sources */,
+				6D90E5B8242BF21A000BC021 /* Playlist+CoreDataProperties.swift in Sources */,
 				6D53737B242958CE00D4BB7D /* iTunesLibraryObjects.swift in Sources */,
+				6D90E5BD242BF21A000BC021 /* Track+CoreDataClass.swift in Sources */,
+				6D90E5B7242BF21A000BC021 /* Playlist+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,13 +567,7 @@
 				6D019ABB24241631004CB2E2 /* SceneDelegate.swift in Sources */,
 				6D019AEA24241666004CB2E2 /* VibeChecker.xcdatamodeld in Sources */,
 				6D019AC024241631004CB2E2 /* ContentView.swift in Sources */,
-				6D53736E24294A8300D4BB7D /* Album+CoreDataClass.swift in Sources */,
-				6D53736A24294A8300D4BB7D /* Track+CoreDataClass.swift in Sources */,
 				6D019ABE24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld in Sources */,
-				6D53737224294A8300D4BB7D /* Artist+CoreDataClass.swift in Sources */,
-				6D53736224294A8300D4BB7D /* Playlist+CoreDataClass.swift in Sources */,
-				6D53737624294A8300D4BB7D /* Vibe+CoreDataClass.swift in Sources */,
-				6D53736624294A8300D4BB7D /* PlaylistTracks+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
