@@ -23,3 +23,30 @@ func testiTunes() -> String {
     
     return returnString
 }
+
+func countAllMediaItems() -> Void {
+    let library: ITLibrary
+    
+    do {
+        try library = ITLibrary(apiVersion: "1.0")
+    } catch {
+        print("Could not load Music library")
+        return
+    }
+    
+    let mediaItems = library.allMediaItems
+    
+    print("mediaItems: \(mediaItems.count)")
+    
+    for item in mediaItems {
+        print("title: \(item.title)")
+        print("kind: \(item.kind ?? "NONE")")
+        print("mediaKind: \(item.mediaKind.rawValue)")
+        print("isCloud: \(item.isCloud)")
+        print("isDRMProtected: \(item.isDRMProtected)")
+        print("---")
+    }
+    
+    return
+}
+

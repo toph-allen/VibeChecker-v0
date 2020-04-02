@@ -10,8 +10,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text(testiTunes())
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        NavigationView {
+            Text(testiTunes())
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }.onAppear(perform: countAllMediaItems)
     }
 }
 
