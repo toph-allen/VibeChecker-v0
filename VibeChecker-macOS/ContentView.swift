@@ -13,7 +13,7 @@ struct ContentView: View {
         NavigationView {
             Text(testiTunes())
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-        }.onAppear(perform: countAllMediaItems)
+        }.onAppear(perform: importITunesTracks)
     }
 }
 
