@@ -12,7 +12,7 @@ import iTunesLibrary
 
 // TODO: Make this only import tracks that are in my library, rather than in any playlist I've saved too.
 
-extension Track {
+extension Track: Identifiable {
     class func createFromiTunesMediaItem(from source: ITLibMediaItem, in moc: NSManagedObjectContext) -> Track {
         let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: moc) as! Track
         print("Creating track from on \(source.title)")
