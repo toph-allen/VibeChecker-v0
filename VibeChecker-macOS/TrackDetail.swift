@@ -14,20 +14,24 @@ struct TrackDetail: View {
     var track: Track
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                Text(track.title ?? "").font(.title)
-                
-                Text("\(track.artistName ?? "") — \(track.albumTitle ?? "")")
-                    .font(.subheadline)
-                    .padding(.bottom)
-                
-                HStack {
-                    Text("File:")
-                    Text((track.location?.path ?? "No File Found") as String).truncationMode(.head)
+        ScrollView {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Text(track.title ?? "").font(.title)
+                    
+                    Text("\(track.artistName ?? "") — \(track.albumTitle ?? "")")
+                        .font(.subheadline)
+                        .padding(.bottom)
+                    
+                    HStack {
+                        Text("File:")
+                        Text((track.location?.path ?? "No File Found") as String).truncationMode(.head)
+                    }
                 }
-            }.padding()
-            
+                Spacer()
+                
+            }
+            .padding()
         }
         // .navigationBarTitle(Text(track.title ?? ""), displayMode: .inline)
     }

@@ -7,12 +7,12 @@
 //
 
 import SwiftUI
+import CoreData
 
-let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-let allTracksRequest: NSFetchRequest<Track> = Track.fetchRequest()
-var tracks = try! moc.fetch(allTracksRequest)
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Track.entity(), sortDescriptors: [], predicate: nil) var tracks: FetchedResults<Track>
     @State private var selectedTrack: Track?
 
     var body: some View {
@@ -23,8 +23,8 @@ struct ContentView: View {
             if selectedTrack != nil {
                 TrackDetail(track: selectedTrack!)
             }
-        }.onAppear(perform: importITunesTracks) // Cannot appear on a variable definition
-
+        }.frame(minWidth: 640, minHeight: 480)
+        .onAppear(perform: importITunesTracks) // Cannot appear on a variable definition
     }
 }
 

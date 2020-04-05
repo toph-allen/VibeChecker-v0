@@ -16,8 +16,13 @@ struct TrackRow: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(track.title ?? "")
-            Text(track.artistName ?? "").font(.caption)
+                .fontWeight(.bold)
+                .frame(minWidth: 20)
+            Text(track.artistName ?? "")
+                .font(.caption)
+                .opacity(0.625)
         }
+        .padding(.vertical, 4)
     }
 }
 
