@@ -17,10 +17,12 @@ struct TrackRow: View {
         VStack(alignment: .leading) {
             Text(track.title ?? "")
                 .fontWeight(.bold)
+                .allowsTightening(true)
                 .frame(minWidth: 20)
             Text(track.artistName ?? "")
                 .font(.caption)
                 .opacity(0.625)
+                .allowsTightening(true)
         }
         .padding(.vertical, 4)
     }
@@ -35,6 +37,6 @@ struct TrackRow_Previews: PreviewProvider {
 
 
         return TrackRow(track: track).environment(\.managedObjectContext, moc)
-        .previewLayout(.fixed(width: 300, height: 100))
+            .previewLayout(.fixed(width: 300, height: 100))
     }
 }

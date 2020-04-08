@@ -17,14 +17,15 @@ struct TrackList: View {
     
     var body: some View {
         List(selection: $selectedTrack) {
-            ForEach(tracks, id: \.id) {track in
+            ForEach(tracks, id: \.id) { track in
                 TrackRow(track: track).tag(track)
             }
         }
     }
 }
-//
-//
+
+
+
 // struct TrackList_Previews: PreviewProvider {
 //     static var previews: some View {
 //         let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -32,9 +33,14 @@ struct TrackList: View {
 //         let tracks = try! moc.fetch(allTracksRequest)
 //
 //
-//
-//
-//         return TrackList(tracks: tracks,
-//                          selectedTrack: .constant(tracks[0])).environment(\.managedObjectContext, moc)
+//         return TrackList(tracks: tracks, selectedTrack: .constant(tracks[0]))
+//             .previewLayout(.fixed(width: 300, height: 400))
 //     }
 // }
+
+
+struct TrackList_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
+}

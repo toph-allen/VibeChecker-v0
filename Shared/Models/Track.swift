@@ -15,7 +15,7 @@ import iTunesLibrary
 extension Track: Identifiable {
     class func createFromiTunesMediaItem(from source: ITLibMediaItem, in moc: NSManagedObjectContext) -> Track {
         let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: moc) as! Track
-        print("Creating track from on \(source.title)")
+        print("Creating track from \(source.title)")
         track.addedDate = source.addedDate
         track.artistName = source.artist?.name
         track.albumTitle = source.album.title
