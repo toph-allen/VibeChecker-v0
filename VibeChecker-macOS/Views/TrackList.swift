@@ -10,9 +10,10 @@ import Foundation
 import SwiftUI
 import CoreData
 
+
 // This takes a list of tracks and displays them. There is currently no sorting logic or anything.
 struct TrackList: View {
-    var tracks: FetchedResults<Track>
+    var tracks: FetchedResults<Track> // How can I make this generic???
     @Binding var selectedTrack: Track?
     
     var body: some View {
