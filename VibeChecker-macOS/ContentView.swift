@@ -8,6 +8,7 @@
 
 import SwiftUI
 import CoreData
+import Combine
 
 
 // struct ContentView: View {
@@ -17,9 +18,32 @@ import CoreData
 // }
 
 
+extension View {
+    func debug() -> some View {
+        print(Mirror(reflecting: self).subjectType)
+        return self
+    }
+}
 
+// This is a service object
+final class TracksImportService {
+    let importButtonTaps = PassthroughSubject<Void, Never>()
+    private var subscriptions = Set<AnyCancellable>()
+    
+    init() {
+        importButtonTaps
+            .sink { _ in
+                importITunesTracks()
+            }
+            .store(in: &subscriptions)
+    }
+}
 
 struct ContentView: View {
+    
+    @State private var selectedTrack: Track?
+    var importService = TracksImportService()
+    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(
         entity: Track.entity(),
@@ -30,19 +54,27 @@ struct ContentView: View {
         ],
         predicate: nil)
     var tracks: FetchedResults<Track>
-    @State private var selectedTrack: Track?
 
     var body: some View {
-        NavigationView {
-            TrackList(tracks: tracks, selectedTrack: $selectedTrack)
-                .listStyle(SidebarListStyle())
-
-            if selectedTrack != nil {
-                TrackDetail(track: selectedTrack!)
+        Group {
+            if tracks.isEmpty {
+                Button.init("Import", action: {
+                    self.importService.importButtonTaps.send()
+                })
+            } else {
+                NavigationView {
+                    TrackList(tracks: tracks, selectedTrack: $selectedTrack)
+                        .listStyle(SidebarListStyle())
+                    
+                    if selectedTrack != nil {
+                        TrackDetail(track: selectedTrack!)
+                    }
+                }
             }
         }.frame(minWidth: 640, minHeight: 480)
-        .onAppear(perform: importITunesTracks) // Cannot appear on a variable definition
-        .onAppear(perform: importITunesPlaylists) // Cannot appear on a variable definition
+        .debug()
+        // .onAppear(perform: importITunesTracks) // Cannot appear on a variable definition
+        // .onAppear(perform: importITunesPlaylists) // Cannot appear on a variable definition
     }
 }
 
