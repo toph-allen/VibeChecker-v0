@@ -34,7 +34,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            TrackList(tracks: tracks, selectedTrack: $selectedTrack)
+            TrackList(tracks: Array(tracks), selectedTrack: $selectedTrack)
                 .listStyle(SidebarListStyle())
 
             if selectedTrack != nil {

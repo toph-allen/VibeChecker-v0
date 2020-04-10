@@ -13,14 +13,15 @@ import CoreData
 
 // This takes a list of tracks and displays them. There is currently no sorting logic or anything.
 struct TrackList: View {
-    var tracks: FetchedResults<Track> // How can I make this generic???
+    var tracks: [Track] // How can I make this generic???
     @Binding var selectedTrack: Track?
+
+    
+    // Maybe have a computed property.
     
     var body: some View {
-        List(selection: $selectedTrack) {
-            ForEach(tracks, id: \.id) { track in
+        List(tracks, id: \.id, selection: $selectedTrack) { track in
                 TrackRow(track: track).tag(track)
-            }
         }
     }
 }
