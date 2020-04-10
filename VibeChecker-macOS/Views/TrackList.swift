@@ -12,7 +12,7 @@ import CoreData
 
 
 // This takes a list of tracks and displays them. There is currently no sorting logic or anything.
-struct TrackList<T: RandomAccessCollection>: View where T.Element: Track {
+struct TrackList<T: RandomAccessCollection>: View where T.Element == Track {
     var tracks: T // How can I make this generic???
     @Binding var selectedTrack: Track?
     
