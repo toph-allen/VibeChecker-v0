@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TrackContainer {
+protocol TrackCollection {
     var tracks: [Track] { get }
 }
