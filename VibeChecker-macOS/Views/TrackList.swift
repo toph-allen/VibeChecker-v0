@@ -29,21 +29,15 @@ struct TrackList<T: RandomAccessCollection>: View where T.Element: Track {
 
 
 
-// struct TrackList_Previews: PreviewProvider {
-//     static var previews: some View {
-//         let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-//         let allTracksRequest: NSFetchRequest<Track> = Track.fetchRequest()
-//         let tracks = try! moc.fetch(allTracksRequest)
-//
-//
-//         return TrackList(tracks: tracks, selectedTrack: .constant(tracks[0]))
-//             .previewLayout(.fixed(width: 300, height: 400))
-//     }
-// }
-
-
 struct TrackList_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let allTracksRequest: NSFetchRequest<Track> = Track.fetchRequest()
+        let tracks = try! moc.fetch(allTracksRequest)
+
+
+        return TrackList(tracks: tracks, selectedTrack: .constant(tracks[0]))
+            .previewLayout(.fixed(width: 300, height: 400))
     }
 }
+
