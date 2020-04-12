@@ -10,10 +10,11 @@ import SwiftUI
 import CoreData
 import Combine
 
-
+//
 // struct ContentView: View {
 //     var body: some View {
 //         Text("Hello, World!")
+//             .frame(minWidth: 640, minHeight: 480)
 //     }
 // }
 
@@ -41,33 +42,28 @@ final class TracksImportService {
 
 struct ContentView: View {
     
-    @State private var selectedTrack: Track?
+    @State private var selectedPlaylist: Playlist?
     var importService = TracksImportService()
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(
-        entity: Track.entity(),
-        sortDescriptors: [
-            NSSortDescriptor(keyPath: \Track.artistName, ascending: true),
-            NSSortDescriptor(keyPath: \Track.albumTitle, ascending: true),
-            NSSortDescriptor(keyPath: \Track.trackNumber, ascending: true)
-        ],
-        predicate: nil)
-    var tracks: FetchedResults<Track>
+    @FetchRequest(entity: Playlist.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Playlist.name, ascending: true)], predicate: nil)
+    var playlists: FetchedResults<Playlist>
 
     var body: some View {
         Group {
-            if tracks.isEmpty {
+            if playlists.isEmpty {
                 Button.init("Import", action: {
                     self.importService.importButtonTaps.send()
                 })
             } else {
                 NavigationView {
-                    TrackList(tracks: tracks, selectedTrack: $selectedTrack)
+                    PlaylistList(playlists: playlists, selectedPlaylist: $selectedPlaylist)
                         .listStyle(SidebarListStyle())
                     
-                    if selectedTrack != nil {
-                        TrackDetail(track: selectedTrack!)
+                    if selectedPlaylist != nil {
+                        // TrackDetail(track: selectedPlaylist!)
+                        Text("Selected playlist: \(selectedPlaylist!.name ?? "[No Name]")")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
             }
@@ -79,8 +75,14 @@ struct ContentView: View {
 }
 
 
+// struct ContentView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         ContentView()
+//     }
+// }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
     }
 }

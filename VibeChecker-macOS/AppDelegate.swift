@@ -28,6 +28,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.setFrameAutosaveName("Main Window")
         window.contentView = NSHostingView(rootView: contentView)
+        
+        
+        let titlebarAccessory = NSTitlebarAccessoryViewController()
+        let toolbarView = ToolbarButtonView().environment(\.managedObjectContext, persistentContainer.viewContext)
+        let toolbarHostingView = NSHostingView(rootView: toolbarView)
+        toolbarHostingView.frame.size = toolbarHostingView.fittingSize
+        titlebarAccessory.view = toolbarHostingView
+        titlebarAccessory.layoutAttribute = .leading
+        // titlebarAccessory.view = NSHostingView(rootView: toolbarView)
+        
+        window.toolbar = .init()
+        window.titleVisibility = .hidden
+        window.addTitlebarAccessoryViewController(titlebarAccessory)
         window.makeKeyAndOrderFront(nil)
     }
 
@@ -136,9 +149,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
-
-struct AppDelegate_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

@@ -10,26 +10,28 @@ import Foundation
 import SwiftUI
 import CoreData
 
+// Maybe make the image an enum or use a switch statement
+
 struct PlaylistRow: View {
     var playlist: Playlist
     
+
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                if playlist.kindEnum == .folder {
-                    Image("folder")
-                    // .resizable()
-                } else if playlist.kindEnum == .regular {
-                    Image("music.note.list")
-                    // .resizable()
-                }
-                Text(playlist.name ?? "")
-                    // .fontWeight(.bold)
-                    // .allowsTightening(true)
-                    .frame(minWidth: 20)
-            }
+        HStack(alignment: .center) {
+            Image(playlist.kindEnum.imageName())
+                .renderingMode(.template)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .fixedSize(horizontal: true, vertical: false)
+                .frame(width: 16, height: 16)
+            Text(playlist.name ?? "")
+                .truncationMode(.tail)
+                // .fontWeight(.bold)
+                .allowsTightening(true)
+                .frame(alignment: .leading)
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, 2)
+        // .frame(minWidth: 20)
     }
 }
 
@@ -38,7 +40,7 @@ struct PlaylistRow_Previews: PreviewProvider {
     static var previews: some View {
         let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-        let playlist = (try! moc.fetch(allPlaylistsRequest).first)!
+        let playlist = (try! moc.fetch(allPlaylistsRequest)[0])
         
         
         return PlaylistRow(playlist: playlist).environment(\.managedObjectContext, moc)

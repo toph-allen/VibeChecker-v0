@@ -17,6 +17,28 @@ import iTunesLibrary
 
 enum PlaylistKind: Int32 {
     case folder, regular, smart, other
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .folder:
+            return "folder"
+        case .regular:
+            return "regular"
+        case .smart:
+            return "smart"
+        case .other:
+            return "other"
+        }
+    }
+    
+    func imageName() -> String {
+        switch self {
+        case .folder:
+            return "folder"
+        default:
+            return "music.note.list"
+        }
+    }
 }
 
 extension Playlist {
@@ -44,6 +66,7 @@ extension Playlist: Identifiable {
         }
         playlist.iTunesPersistentID = source.persistentID.int64Value
         playlist.name = source.name
+        playlist.id = UUID.init()
 
         return playlist
     }

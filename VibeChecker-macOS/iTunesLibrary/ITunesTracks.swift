@@ -13,7 +13,7 @@ import CoreData
 
 // This function should add all songs in the iTunesLibrary to the Core Data moc.
 func importITunesTracks() -> Void {
-    print("Trying to import tracks from iTunes")
+    print("Trying to import tracks from iTunes...")
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let moc = appDelegate.persistentContainer.viewContext
     
@@ -61,53 +61,45 @@ func importITunesTracks() -> Void {
     print(tracks.count)
 }
 
+// // This version crashes the app
+// func deleteITunesTracks() -> Void {
+//     let appDelegate = NSApplication.shared.delegate as! AppDelegate
+//     let moc = appDelegate.persistentContainer.viewContext
+//
+//     let allTracksRequest: NSFetchRequest<Track> = Track.fetchRequest()
+//
+//     do {
+//         let tracks = try moc.fetch(allTracksRequest)
+//
+//         for track in tracks {
+//             moc.delete(track)
+//         }
+//     } catch {
+//         print("Could delete tracks.")
+//     }
+//
+//
+//     do {
+//         try moc.save()
+//     } catch {
+//         print("Could not save deleted state.")
+//     }
+// }
 
-func importITunesPlaylists() -> Void {
-    print("Trying to import playlists from iTunes")
+// This version doesn't update the view but does delete things
+func deleteITunesTracks() -> Void {
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let moc = appDelegate.persistentContainer.viewContext
     
-    let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-    var playlistCount: Int
+    let allTracksRequest: NSFetchRequest<NSFetchRequestResult> = Track.fetchRequest()
+    
+    // Create Batch Delete Request
+    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: allTracksRequest)
     
     do {
-        try playlistCount = moc.count(for: allPlaylistsRequest)
-    } catch {
-        print("Could not count playlists.")
-        playlistCount = 0
-    }
-    
-    guard playlistCount == 0 else {
-        print("There are already \(playlistCount) playlists in VibeChecker's library. Not importing from Music.")
-        return
-    }
-    
-    // Import tracks from iTunes library.
-    let library: ITLibrary
-    
-    do {
-        try library = ITLibrary(apiVersion: "1.0")
-    } catch {
-        print("Music library not available.")
-        return
-    }
-    
-    // TODO: This should look only at items in the master library playlist, not use the allMediaItems query, because that query also includes tracks which are in saved playlists but not saved to the library.
-    let iTunesPlaylists = library.allPlaylists.filter {$0.isVisible == true}
-    
-    for song in iTunesPlaylists {
-        _ = Playlist.createFromiTunesMediaItem(from: song, in: moc)
-    }
-    
-    do {
+        try moc.execute(batchDeleteRequest)
         try moc.save()
-        print("Saved library.")
     } catch {
-        print("Could not import library.")
+        print("Could not delete tracks.")
     }
-    
-    let tracks = try! moc.fetch(allPlaylistsRequest)
-    
-    print(tracks.count)
 }
-
