@@ -62,7 +62,7 @@ struct ContentView: View {
                     
                     if selectedPlaylist != nil {
                         // TrackDetail(track: selectedPlaylist!)
-                        Text("Selected playlist: \(selectedPlaylist!.name ?? "[No Name]")")
+                        PlaylistDetail(playlist: selectedPlaylist!)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }

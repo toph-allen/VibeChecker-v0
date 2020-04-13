@@ -43,7 +43,7 @@ func importITunesPlaylists() -> Void {
     }
     
     // TODO: This should look only at items in the master library playlist, not use the allMediaItems query, because that query also includes tracks which are in saved playlists but not saved to the library.
-    let iTunesPlaylists = library.allPlaylists.filter {$0.isVisible == true}
+    let iTunesPlaylists = library.allPlaylists.filter {$0.isVisible == true && $0.isMaster == false && $0.distinguishedKind == ITLibDistinguishedPlaylistKind.kindNone}
     
     for playlist in iTunesPlaylists {
         _ = Playlist.createFromiTunesMediaItem(from: playlist, in: moc)

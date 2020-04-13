@@ -16,10 +16,11 @@
         <attribute name="iTunesPersistentID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="kind" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="tracksInPlaylist" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PlaylistTracks" inverseName="playlist" inverseEntity="PlaylistTracks"/>
+        <relationship name="tracksRelationships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistTrack" inverseName="playlist" inverseEntity="PlaylistTrack"/>
     </entity>
-    <entity name="PlaylistTracks" representedClassName="PlaylistTracks" syncable="YES" codeGenerationType="class">
-        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="tracksInPlaylist" inverseEntity="Playlist"/>
+    <entity name="PlaylistTrack" representedClassName="PlaylistTrack" syncable="YES" codeGenerationType="class">
+        <attribute name="order" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="tracksRelationships" inverseEntity="Playlist"/>
         <relationship name="track" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Track" inverseName="playlists" inverseEntity="Track"/>
     </entity>
     <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
@@ -34,7 +35,7 @@
         <attribute name="trackNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Album" inverseName="tracks" inverseEntity="Album"/>
         <relationship name="artist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Artist" inverseName="tracks" inverseEntity="Artist"/>
-        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistTracks" inverseName="track" inverseEntity="PlaylistTracks"/>
+        <relationship name="playlists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistTrack" inverseName="track" inverseEntity="PlaylistTrack"/>
         <relationship name="vibes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vibe" inverseName="tracks" inverseEntity="Vibe"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
@@ -52,7 +53,7 @@
         <element name="Album" positionX="-147.2109375" positionY="-461.3203125" width="128" height="28"/>
         <element name="Artist" positionX="-328.8125" positionY="-380.34375" width="128" height="88"/>
         <element name="Playlist" positionX="-248.1796875" positionY="-277.5625" width="128" height="118"/>
-        <element name="PlaylistTracks" positionX="-242.37109375" positionY="-122.4140625" width="128" height="73"/>
+        <element name="PlaylistTrack" positionX="-242.37109375" positionY="-122.4140625" width="128" height="88"/>
         <element name="Track" positionX="29.76171875" positionY="-346.50390625" width="128" height="238"/>
         <element name="Vibe" positionX="-295.02734375" positionY="-5.03515625" width="128" height="103"/>
     </elements>

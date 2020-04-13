@@ -18,17 +18,19 @@ struct PlaylistRow: View {
 
     var body: some View {
         HStack(alignment: .center) {
-            Image(playlist.kindEnum.imageName())
+            Image("\(playlist.kindEnum.imageName()).13-regular-medium")
                 .renderingMode(.template)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .fixedSize(horizontal: true, vertical: false)
-                .frame(width: 16, height: 16)
+                // // These seem to function as a block. Because I'm using icons of the correct size, I don't need to use them.
+                // .resizable()
+                // .aspectRatio(contentMode: .fit)
+                // .fixedSize(horizontal: true, vertical: true)
+                // .frame(width: 16, height: 16)
             Text(playlist.name ?? "")
                 .truncationMode(.tail)
                 // .fontWeight(.bold)
                 .allowsTightening(true)
                 .frame(alignment: .leading)
+            Spacer()
         }
         .padding(.vertical, 2)
         // .frame(minWidth: 20)

@@ -34,6 +34,7 @@
 		6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92009A2432943B005D438A /* iTunesPlaylists.swift */; };
 		6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DACB052243C048000B85153 /* PlaylistRow.swift */; };
 		6DACB055243C0CD200B85153 /* PlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DACB054243C0CD200B85153 /* PlaylistList.swift */; };
+		6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */; };
 		6DBE4C87243E774D001CC79A /* TrackCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE4C86243E774D001CC79A /* TrackCollection.swift */; };
 		6DD16EB824422F5400BFC4D5 /* MainWindowTitlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD16EB724422F5400BFC4D5 /* MainWindowTitlebar.swift */; };
 		6DD16EBA244288EA00BFC4D5 /* ITunesTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD16EB9244288EA00BFC4D5 /* ITunesTracks.swift */; };
@@ -112,6 +113,7 @@
 		6D92009A2432943B005D438A /* iTunesPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPlaylists.swift; sourceTree = "<group>"; };
 		6DACB052243C048000B85153 /* PlaylistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRow.swift; sourceTree = "<group>"; };
 		6DACB054243C0CD200B85153 /* PlaylistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistList.swift; sourceTree = "<group>"; };
+		6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
 		6DBE4C86243E774D001CC79A /* TrackCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollection.swift; sourceTree = "<group>"; };
 		6DC5CF1324119D30004E090B /* VibeChecker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibeChecker.xcdatamodel; sourceTree = "<group>"; };
 		6DD16EB724422F5400BFC4D5 /* MainWindowTitlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowTitlebar.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				6D0BB0AE24391C08005D6A83 /* TrackRow.swift */,
 				6DACB054243C0CD200B85153 /* PlaylistList.swift */,
 				6DACB052243C048000B85153 /* PlaylistRow.swift */,
+				6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				6D0BB0B12439200C005D6A83 /* TrackList.swift in Sources */,
 				6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */,
 				6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */,
+				6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */,
 				6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */,
 				6DE3FC39242E61670084CFDD /* Track.swift in Sources */,
 				6D019A83242415FC004CB2E2 /* AppDelegate.swift in Sources */,
