@@ -36,7 +36,6 @@ struct ToolbarButtonView: View {
                         Text("Import Tracks").offset(x: 0, y: 1)
                     }
                 } else {
-                    // This button currently deletes everything.
                     Button(action: {
                         deleteITunesTracks()
                     }) {
@@ -50,11 +49,20 @@ struct ToolbarButtonView: View {
                         Text("Import Playlists").offset(x: 0, y: 1)
                     }
                 } else {
-                    // This button currently deletes everything.
+                    Button(action: {
+                        importITunesPlaylists()
+                    }) {
+                        Text("Update Playlists").offset(x: 0, y: 1)
+                    }
                     Button(action: {
                         deleteITunesPlaylists()
                     }) {
                         Text("Delete Playlists").offset(x: 0, y: 1)
+                    }
+                    Button(action: {
+                        addParentsToPlaylists()
+                    }) {
+                        Text("Add Playlist Parents").offset(x: 0, y: 1)
                     }
                 }
             }.font(.caption)

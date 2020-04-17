@@ -66,6 +66,7 @@ struct ContentView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
+                .navigationViewStyle(DoubleColumnNavigationViewStyle())
             }
         }.frame(minWidth: 640, minHeight: 480)
         .debug()

@@ -32,6 +32,7 @@
 		6D53737B242958CE00D4BB7D /* iTunesLibraryObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53737A242958CE00D4BB7D /* iTunesLibraryObjects.swift */; };
 		6D6A24C0243BC1BA00D217E9 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A24BF243BC1BA00D217E9 /* Playlist.swift */; };
 		6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92009A2432943B005D438A /* iTunesPlaylists.swift */; };
+		6DAC9F8F2444D3BB007DE890 /* PlaylistOutline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAC9F8E2444D3BB007DE890 /* PlaylistOutline.swift */; };
 		6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DACB052243C048000B85153 /* PlaylistRow.swift */; };
 		6DACB055243C0CD200B85153 /* PlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DACB054243C0CD200B85153 /* PlaylistList.swift */; };
 		6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */; };
@@ -111,6 +112,7 @@
 		6D62D7D02416F743007A0346 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6D6A24BF243BC1BA00D217E9 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		6D92009A2432943B005D438A /* iTunesPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPlaylists.swift; sourceTree = "<group>"; };
+		6DAC9F8E2444D3BB007DE890 /* PlaylistOutline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistOutline.swift; sourceTree = "<group>"; };
 		6DACB052243C048000B85153 /* PlaylistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRow.swift; sourceTree = "<group>"; };
 		6DACB054243C0CD200B85153 /* PlaylistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistList.swift; sourceTree = "<group>"; };
 		6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
@@ -287,8 +289,9 @@
 				6D0BB0B224392C59005D6A83 /* TrackDetail.swift */,
 				6D0BB0B02439200C005D6A83 /* TrackList.swift */,
 				6D0BB0AE24391C08005D6A83 /* TrackRow.swift */,
-				6DACB054243C0CD200B85153 /* PlaylistList.swift */,
 				6DACB052243C048000B85153 /* PlaylistRow.swift */,
+				6DAC9F8E2444D3BB007DE890 /* PlaylistOutline.swift */,
+				6DACB054243C0CD200B85153 /* PlaylistList.swift */,
 				6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */,
 			);
 			path = Views;
@@ -546,6 +549,7 @@
 			files = (
 				6D0BB0B12439200C005D6A83 /* TrackList.swift in Sources */,
 				6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */,
+				6DAC9F8F2444D3BB007DE890 /* PlaylistOutline.swift in Sources */,
 				6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */,
 				6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */,
 				6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */,

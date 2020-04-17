@@ -48,6 +48,74 @@ extension Playlist {
     }
 }
 
+extension Playlist {
+    class func forITunesPlaylist(_ iTunesPlaylist: ITLibPlaylist, in moc: NSManagedObjectContext) -> Playlist? {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Playlist.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "iTunesPersistentID == \(iTunesPlaylist.persistentID.int64Value)")
+
+        let result = try! moc.fetch(fetchRequest)
+
+        switch result.count {
+        case 0:
+            return Playlist.createFromiTunesMediaItem(from: iTunesPlaylist, in: moc)
+        case 1:
+            print("Found playlist for iTunes playlist \(iTunesPlaylist.name)")
+            return (result[0] as! Playlist)
+        default:
+            // TODO: Reconcile if this error ever occurs
+            print("Found multiple playlists for iTunes playlist \(iTunesPlaylist.name)")
+            return nil
+        }
+    }
+    
+    
+    class func forITunesPersistentID(_ iTunesPersistentID: NSNumber, in moc: NSManagedObjectContext) -> Playlist? {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Playlist.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "iTunesPersistentID == \(iTunesPersistentID)")
+        
+        let result = try! moc.fetch(fetchRequest)
+        
+        switch result.count {
+        case 0:
+            // TODO: Create a playlist from that ID if one exists?
+            print("Could not find a playlist for \(iTunesPersistentID)")
+            return nil
+        case 1:
+            print("Found playlist for iTunes playlist \(iTunesPersistentID)")
+            return (result[0] as! Playlist)
+        default:
+            // TODO: Reconcile if this error ever occurs
+            print("Found multiple playlists for iTunes playlist \(iTunesPersistentID)")
+            return nil
+        }
+    }
+
+
+    var associatedITunesPlaylist: ITLibPlaylist? {
+        get {
+            if let library = try? ITLibrary(apiVersion: "1.0") {
+                let playlist = library.allPlaylists.filter {
+                    $0.persistentID.int64Value == iTunesPersistentID
+                }
+                return playlist[0]
+            } else {
+                return nil
+            }
+        }
+
+    }
+}
+
+extension Playlist {
+    var childList: [Playlist]? {
+        get {
+            let childSet = self.children
+            let childList = childSet?.map {$0}
+            return childList as? [Playlist]
+        }
+    }
+}
+
 
 extension Playlist {
     class func createFromiTunesMediaItem(from source: ITLibPlaylist, in moc: NSManagedObjectContext) -> Playlist {

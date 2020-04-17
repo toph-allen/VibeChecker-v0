@@ -15,12 +15,12 @@ struct PlaylistDetail: View {
     @State private var selectedTrack: Track?
 
     var body: some View {
-            VStack {
-                HStack(alignment: .top) {
-                    Text(playlist.name ?? "").font(.title)
-                    Spacer()
-                }.padding()
-                TrackList(tracks: playlist.tracks, selectedTrack: $selectedTrack)
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
+                Text(playlist.name ?? "").font(.title)
+                Text("Parent Playlist: \(playlist.parent?.name ?? "")")
+            }.padding()
+        TrackList(tracks: playlist.tracks, selectedTrack: $selectedTrack)
         }
     }
 }

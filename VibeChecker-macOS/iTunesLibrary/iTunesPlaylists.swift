@@ -18,19 +18,6 @@ func importITunesPlaylists() -> Void {
     let moc = appDelegate.persistentContainer.viewContext
     
     let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-    var playlistCount: Int
-    
-    do {
-        try playlistCount = moc.count(for: allPlaylistsRequest)
-    } catch {
-        print("Could not count playlists.")
-        playlistCount = 0
-    }
-    
-    guard playlistCount == 0 else {
-        print("There are already \(playlistCount) playlists in VibeChecker's library. Not importing from Music.")
-        return
-    }
     
     // Import tracks from iTunes library.
     let library: ITLibrary
@@ -46,7 +33,51 @@ func importITunesPlaylists() -> Void {
     let iTunesPlaylists = library.allPlaylists.filter {$0.isVisible == true && $0.isMaster == false && $0.distinguishedKind == ITLibDistinguishedPlaylistKind.kindNone}
     
     for playlist in iTunesPlaylists {
-        _ = Playlist.createFromiTunesMediaItem(from: playlist, in: moc)
+        _ = Playlist.forITunesPlaylist(playlist, in: moc)
+    }
+    
+    do {
+        try moc.save()
+        print("Saved library.")
+    } catch {
+        print("Could not import library.")
+    }
+    
+    let tracks = try! moc.fetch(allPlaylistsRequest)
+    
+    print(tracks.count)
+}
+
+
+
+func addParentsToPlaylists() -> Void {
+    print("Trying to import playlists from iTunes...")
+    
+    // Set up playlists
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    let moc = appDelegate.persistentContainer.viewContext
+    
+    let playlists: [Playlist]?
+    let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+    do {
+        playlists = try moc.fetch(allPlaylistsRequest)
+    } catch {
+        print("Could not find playlists to add parents to.")
+        playlists = nil
+    }
+    
+    guard playlists != nil else {
+        print("Could not find any playlists.")
+        return
+    }
+    
+    for playlist in playlists! {
+        let iTunesPlaylist = playlist.associatedITunesPlaylist
+        if let iTunesParentID = iTunesPlaylist?.parentID {
+            playlist.parent = Playlist.forITunesPersistentID(iTunesParentID, in: moc)
+        } else {
+            print("Could not find a parent for \(playlist.name ?? "an unnamed playlist").")
+        }
     }
     
     do {

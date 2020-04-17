@@ -16,6 +16,8 @@
         <attribute name="iTunesPersistentID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="kind" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Playlist" inverseName="parent" inverseEntity="Playlist"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="children" inverseEntity="Playlist"/>
         <relationship name="tracksRelationships" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PlaylistTrack" inverseName="playlist" inverseEntity="PlaylistTrack"/>
     </entity>
     <entity name="PlaylistTrack" representedClassName="PlaylistTrack" syncable="YES" codeGenerationType="class">
@@ -52,7 +54,7 @@
     <elements>
         <element name="Album" positionX="-147.2109375" positionY="-461.3203125" width="128" height="28"/>
         <element name="Artist" positionX="-328.8125" positionY="-380.34375" width="128" height="88"/>
-        <element name="Playlist" positionX="-248.1796875" positionY="-277.5625" width="128" height="118"/>
+        <element name="Playlist" positionX="-248.1796875" positionY="-277.5625" width="128" height="148"/>
         <element name="PlaylistTrack" positionX="-242.37109375" positionY="-122.4140625" width="128" height="88"/>
         <element name="Track" positionX="29.76171875" positionY="-346.50390625" width="128" height="238"/>
         <element name="Vibe" positionX="-295.02734375" positionY="-5.03515625" width="128" height="103"/>
