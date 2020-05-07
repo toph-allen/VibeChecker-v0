@@ -78,3 +78,24 @@ struct MainWindowTitlebar_Previews: PreviewProvider {
         Text("Hello World!")
     }
 }
+
+
+// This is a service object
+
+// final class TracksImportService {
+//     let importButtonTaps = PassthroughSubject<Void, Never>()
+//     private var subscriptions = Set<AnyCancellable>()
+//
+//     init() {
+//         importButtonTaps
+//             .sink { _ in
+//                 importITunesTracks()
+//         }
+//         .store(in: &subscriptions)
+//     }
+// }
+
+// You use it in a button like this:
+// Button.init("Import", action: {
+//    self.importService.importButtonTaps.send()
+// })

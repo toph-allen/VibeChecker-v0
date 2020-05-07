@@ -30,6 +30,7 @@ func importITunesPlaylists() -> Void {
     }
     
     // TODO: This should look only at items in the master library playlist, not use the allMediaItems query, because that query also includes tracks which are in saved playlists but not saved to the library.
+    // We import Smart Playlists but we don't give them tracks (handled elsewhere).
     let iTunesPlaylists = library.allPlaylists.filter {$0.isVisible == true && $0.isMaster == false && $0.distinguishedKind == ITLibDistinguishedPlaylistKind.kindNone}
     
     for playlist in iTunesPlaylists {
@@ -73,10 +74,13 @@ func addParentsToPlaylists() -> Void {
     
     for playlist in playlists! {
         let iTunesPlaylist = playlist.associatedITunesPlaylist
-        if let iTunesParentID = iTunesPlaylist?.parentID {
-            playlist.parent = Playlist.forITunesPersistentID(iTunesParentID, in: moc)
+        print("Getting parent playlist for \(playlist.name) – iTunesPersistentID: \(playlist.iTunesPersistentID ?? "")")
+        if let iTunesParentID = iTunesPlaylist?.parentID?.stringValue {
+            playlist.parentPlaylist = Playlist.forITunesPersistentID(iTunesParentID, in: moc)
+            print("Parent playlist: \(playlist.parentPlaylist?.name ?? "UNNAMED PARENT") – iTunesPersistentID: \(playlist.parentPlaylist?.iTunesPersistentID ?? "")")
         } else {
-            print("Could not find a parent for \(playlist.name ?? "an unnamed playlist").")
+            print("Could not find a parent for \(playlist.name).")
+            
         }
     }
     
@@ -95,6 +99,7 @@ func addParentsToPlaylists() -> Void {
 
 
 // This version doesn't update the view but does delete things
+// TODO: This should also delete the relations of that playlist? Unless Core Data is set to do that automatically.
 func deleteITunesPlaylists() -> Void {
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let moc = appDelegate.persistentContainer.viewContext

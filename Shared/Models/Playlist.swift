@@ -11,6 +11,11 @@ import CoreData
 import iTunesLibrary
 
 
+extension Playlist: Identifiable {}
+
+
+// MARK: PlaylistKind Enum
+
 enum PlaylistKind: Int32 {
     case folder, regular, smart, other
     
@@ -37,21 +42,21 @@ enum PlaylistKind: Int32 {
     }
 }
 
-
-extension Playlist: Identifiable {}
-
-
 extension Playlist {
-    var kindEnum: PlaylistKind {
-        get { return PlaylistKind(rawValue: self.kind) ?? .other }
-        set { self.kind = newValue.rawValue }
+    var kind: PlaylistKind {
+        get { return PlaylistKind(rawValue: self.kindValue) ?? .other }
+        set { self.kindValue = newValue.rawValue }
     }
 }
 
+
+// MARK: iTunesLibrary playlists IDs
+
+// This is probably a bad design pattern.
 extension Playlist {
     class func forITunesPlaylist(_ iTunesPlaylist: ITLibPlaylist, in moc: NSManagedObjectContext) -> Playlist? {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Playlist.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "iTunesPersistentID == \(iTunesPlaylist.persistentID.int64Value)")
+        fetchRequest.predicate = NSPredicate(format: "iTunesPersistentID == \(iTunesPlaylist.persistentID.stringValue)")
 
         let result = try! moc.fetch(fetchRequest)
 
@@ -69,9 +74,9 @@ extension Playlist {
     }
     
     
-    class func forITunesPersistentID(_ iTunesPersistentID: NSNumber, in moc: NSManagedObjectContext) -> Playlist? {
+    class func forITunesPersistentID(_ iTunesPersistentID: String, in moc: NSManagedObjectContext) -> Playlist? {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Playlist.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "iTunesPersistentID == \(iTunesPersistentID)")
+        fetchRequest.predicate = NSPredicate(format: "iTunesPersistentID == %@", iTunesPersistentID)
         
         let result = try! moc.fetch(fetchRequest)
         
@@ -95,7 +100,7 @@ extension Playlist {
         get {
             if let library = try? ITLibrary(apiVersion: "1.0") {
                 let playlist = library.allPlaylists.filter {
-                    $0.persistentID.int64Value == iTunesPersistentID
+                    $0.persistentID.stringValue == iTunesPersistentID
                 }
                 return playlist[0]
             } else {
@@ -109,38 +114,38 @@ extension Playlist {
 extension Playlist {
     var childList: [Playlist]? {
         get {
-            let childSet = self.children
-            let childList = childSet?.map {$0}
-            return childList as? [Playlist]
+            return Array(childPlaylists ?? [])
         }
     }
 }
+
+
 
 
 extension Playlist {
     class func createFromiTunesMediaItem(from source: ITLibPlaylist, in moc: NSManagedObjectContext) -> Playlist {
         let playlist = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: moc) as! Playlist
         
-        print("Creating playlist from  \(source.name)")
+        print("Creating playlist from \(source.name)")
         print(source.distinguishedKind.rawValue)
 
         switch source.kind {
         case .folder:
-            playlist.kindEnum = .folder
+            playlist.kind = .folder
         case .regular:
-            playlist.kindEnum = .regular
+            playlist.kind = .regular
         case .smart:
-            playlist.kindEnum = .smart
+            playlist.kind = .smart
         default:
-            playlist.kindEnum = .other
+            playlist.kind = .other
         }
-        playlist.iTunesPersistentID = source.persistentID.int64Value
+        playlist.iTunesPersistentID = source.persistentID.stringValue
         playlist.name = source.name
         playlist.id = UUID.init()
         
         // MARK: Get tracks for playlist
         // FIXME: This is really slow and super inefficient
-        if playlist.kindEnum != .folder {
+        if playlist.kind == .regular {
             var order = 0
             let trackFetchRequest: NSFetchRequest<Track> = Track.fetchRequest()
 
@@ -173,9 +178,35 @@ extension Playlist {
 extension Playlist {
     var tracks: [Track] {
         get {
-            return self.tracksRelationships?.allObjects.map({
-                (($0 as! PlaylistTrack).track!)
-            }) ?? []
+            if let playlistTracks = self.tracksRelationships {
+                let tracks = playlistTracks.sorted(by: {
+                    $0.order < $1.order
+                }).compactMap({ $0.track ?? nil }) as [Track?]
+                return tracks.map { $0! }
+            } else {
+                return []
+            }
+        }
+    }
+}
+
+
+extension Playlist: OutlineRepresentable {
+    var children: [Playlist]? {
+        return Array(childPlaylists ?? [])
+    }
+    
+    var parent: Playlist? {
+        return parentPlaylist
+    }
+    
+    var hasContent: Bool {
+        get {
+            if self.children == nil {
+                return true
+            } else {
+                return self.children!.count == 0
+            }
         }
     }
 }

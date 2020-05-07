@@ -26,53 +26,21 @@ extension View {
     }
 }
 
-// This is a service object
-final class TracksImportService {
-    let importButtonTaps = PassthroughSubject<Void, Never>()
-    private var subscriptions = Set<AnyCancellable>()
-    
-    init() {
-        importButtonTaps
-            .sink { _ in
-                importITunesTracks()
-            }
-            .store(in: &subscriptions)
-    }
-}
+
 
 struct ContentView: View {
-    
-    @State private var selectedPlaylist: Playlist?
-    var importService = TracksImportService()
-    
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Playlist.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Playlist.name, ascending: true)], predicate: nil)
-    var playlists: FetchedResults<Playlist>
+    @FetchRequest(entity: Playlist.entity(), sortDescriptors: [], predicate: nil) var playlists: FetchedResults<Playlist>
 
     var body: some View {
-        Group {
-            if playlists.isEmpty {
-                Button.init("Import", action: {
-                    self.importService.importButtonTaps.send()
-                })
-            } else {
-                NavigationView {
-                    PlaylistList(playlists: playlists, selectedPlaylist: $selectedPlaylist)
-                        .listStyle(SidebarListStyle())
-                    
-                    if selectedPlaylist != nil {
-                        // TrackDetail(track: selectedPlaylist!)
-                        PlaylistDetail(playlist: selectedPlaylist!)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
-                }
-                .navigationViewStyle(DoubleColumnNavigationViewStyle())
-            }
-        }.frame(minWidth: 640, minHeight: 480)
-        .debug()
+        PlaylistSplitView(items: playlists)
+            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+            .frame(minWidth: 640, minHeight: 480)
+            .debug()
+    }
+
         // .onAppear(perform: importITunesTracks) // Cannot appear on a variable definition
         // .onAppear(perform: importITunesPlaylists) // Cannot appear on a variable definition
-    }
 }
 
 

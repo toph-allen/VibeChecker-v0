@@ -21,6 +21,7 @@ struct TrackList<T: RandomAccessCollection>: View where T.Element == Track {
                 TrackRow(track: track).tag(track)
             }
         }
+        .frame(minWidth: 256, idealWidth: 320, maxWidth: 320)
     }
 }
 

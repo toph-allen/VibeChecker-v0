@@ -11,21 +11,21 @@ import SwiftUI
 import CoreData
 
 struct TrackDetail: View {
-    var track: Track
+    var track: Track?
     
     var body: some View {
         ScrollView {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text(track.title ?? "").font(.title)
+                    Text(track?.title ?? "No Track Selected").font(.title)
                     
-                    Text("\(track.artistName ?? "") — \(track.albumTitle ?? "")")
+                    Text("\(track?.artistName ?? "") — \(track?.albumTitle ?? "")")
                         .font(.subheadline)
                         .padding(.bottom)
                     
                     HStack {
                         Text("File:")
-                        Text((track.location?.path ?? "No File Found") as String).truncationMode(.head)
+                        Text((track?.location?.path ?? "") as String).truncationMode(.head)
                     }
                 }
                 Spacer()
@@ -33,6 +33,7 @@ struct TrackDetail: View {
             }
             .padding()
         }
+        .frame(minWidth: 320, idealWidth: 640, maxWidth: .infinity, minHeight: 240, idealHeight: 320, maxHeight: .infinity)
         // .navigationBarTitle(Text(track.title ?? ""), displayMode: .inline)
     }
 }
