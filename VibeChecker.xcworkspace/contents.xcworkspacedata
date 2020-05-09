@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:VibeChecker.xcodeproj">
+      location = "group:VibeChecker.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../OutlineView/OutlineView.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

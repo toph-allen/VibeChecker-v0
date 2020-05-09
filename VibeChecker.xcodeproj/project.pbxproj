@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B677A714EF85006154C39A6 /* Pods_VibeChecker_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57E67AFEBF649B6DE02231F9 /* Pods_VibeChecker_macOS.framework */; };
 		6D019A83242415FC004CB2E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019A82242415FC004CB2E2 /* AppDelegate.swift */; };
 		6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019A84242415FC004CB2E2 /* ContentView.swift */; };
 		6D019A8A242415FE004CB2E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D019A89242415FE004CB2E2 /* Assets.xcassets */; };
@@ -78,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CD83E6DAFA41B0678A5FC10 /* Pods-VibeChecker-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VibeChecker-macOS.release.xcconfig"; path = "Target Support Files/Pods-VibeChecker-macOS/Pods-VibeChecker-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		57E67AFEBF649B6DE02231F9 /* Pods_VibeChecker_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VibeChecker_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D019A80242415FC004CB2E2 /* VibeChecker-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VibeChecker-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D019A82242415FC004CB2E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D019A84242415FC004CB2E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		6DD16EB9244288EA00BFC4D5 /* ITunesTracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesTracks.swift; sourceTree = "<group>"; };
 		6DE14BC72450CC8500FCB029 /* Playlist+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreData.swift"; sourceTree = "<group>"; };
 		6DE3FC38242E61670084CFDD /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		D9BABE8D462D688EB395F8A1 /* Pods-VibeChecker-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VibeChecker-macOS.debug.xcconfig"; path = "Target Support Files/Pods-VibeChecker-macOS/Pods-VibeChecker-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B677A714EF85006154C39A6 /* Pods_VibeChecker_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +268,7 @@
 		6D019AEB24241695004CB2E2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				6D5373792429587000D4BB7D /* Models */,
+				6D5373792429587000D4BB7D /* Models-CoreData */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -278,7 +283,7 @@
 			path = iTunesLibrary;
 			sourceTree = "<group>";
 		};
-		6D5373792429587000D4BB7D /* Models */ = {
+		6D5373792429587000D4BB7D /* Models-CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */,
@@ -287,7 +292,7 @@
 				6D6A24BF243BC1BA00D217E9 /* Playlist.swift */,
 				6DBE4C86243E774D001CC79A /* TrackCollection.swift */,
 			);
-			path = Models;
+			path = "Models-CoreData";
 			sourceTree = "<group>";
 		};
 		6D6A24C1243BC3D200D217E9 /* Views */ = {
@@ -326,6 +331,8 @@
 				6D019AD124241632004CB2E2 /* VibeChecker-iOSTests */,
 				6D019ADC24241632004CB2E2 /* VibeChecker-iOSUITests */,
 				6DC5CF0C24119D30004E090B /* Products */,
+				9656E4DA9D00E16114137717 /* Pods */,
+				AC091509EB08E42AB4A11474 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -342,6 +349,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		9656E4DA9D00E16114137717 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D9BABE8D462D688EB395F8A1 /* Pods-VibeChecker-macOS.debug.xcconfig */,
+				0CD83E6DAFA41B0678A5FC10 /* Pods-VibeChecker-macOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AC091509EB08E42AB4A11474 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57E67AFEBF649B6DE02231F9 /* Pods_VibeChecker_macOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -349,9 +373,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D019AA9242415FE004CB2E2 /* Build configuration list for PBXNativeTarget "VibeChecker-macOS" */;
 			buildPhases = (
+				7ABC1B02A6506ED9D935FEDA /* [CP] Check Pods Manifest.lock */,
 				6D019A7C242415FC004CB2E2 /* Sources */,
 				6D019A7D242415FC004CB2E2 /* Frameworks */,
 				6D019A7E242415FC004CB2E2 /* Resources */,
+				8A90C5FCA4034166D54A9121 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -559,6 +585,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7ABC1B02A6506ED9D935FEDA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VibeChecker-macOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A90C5FCA4034166D54A9121 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VibeChecker-macOS/Pods-VibeChecker-macOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VibeChecker-macOS/Pods-VibeChecker-macOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VibeChecker-macOS/Pods-VibeChecker-macOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6D019A7C242415FC004CB2E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -680,10 +748,11 @@
 /* Begin XCBuildConfiguration section */
 		6D019AAA242415FE004CB2E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9BABE8D462D688EB395F8A1 /* Pods-VibeChecker-macOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "VibeChecker-macOS/VibeChecker_macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker-macOS/Preview Content\"";
@@ -707,10 +776,11 @@
 		};
 		6D019AAB242415FE004CB2E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CD83E6DAFA41B0678A5FC10 /* Pods-VibeChecker-macOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "VibeChecker-macOS/VibeChecker_macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"VibeChecker-macOS/Preview Content\"";
