@@ -24,27 +24,21 @@
 		6D019AC824241632004CB2E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D019AC624241632004CB2E2 /* LaunchScreen.storyboard */; };
 		6D019AD324241632004CB2E2 /* VibeChecker_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019AD224241632004CB2E2 /* VibeChecker_iOSTests.swift */; };
 		6D019ADE24241632004CB2E2 /* VibeChecker_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */; };
-		6D019AE924241665004CB2E2 /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
-		6D019AEA24241666004CB2E2 /* VibeChecker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */; };
+		6D07A05A24730FD300AD41F3 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A05924730FD300AD41F3 /* Track.swift */; };
+		6D07A05F24731DA900AD41F3 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A05E24731DA900AD41F3 /* Playlist.swift */; };
 		6D0BB0AF24391C08005D6A83 /* TrackRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BB0AE24391C08005D6A83 /* TrackRow.swift */; };
 		6D0BB0B12439200C005D6A83 /* TrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BB0B02439200C005D6A83 /* TrackList.swift */; };
 		6D0BB0B324392C59005D6A83 /* TrackDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BB0B224392C59005D6A83 /* TrackDetail.swift */; };
-		6D0CB9492437CA9A00967BDD /* persistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0CB9482437CA9A00967BDD /* persistentContainer.swift */; };
 		6D53737B242958CE00D4BB7D /* iTunesLibraryObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53737A242958CE00D4BB7D /* iTunesLibraryObjects.swift */; };
-		6D6A24C0243BC1BA00D217E9 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6A24BF243BC1BA00D217E9 /* Playlist.swift */; };
 		6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D92009A2432943B005D438A /* iTunesPlaylists.swift */; };
 		6D99076324620927006EC46E /* OutlineNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D99076224620927006EC46E /* OutlineNode.swift */; };
 		6D99076524620960006EC46E /* OutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D99076424620960006EC46E /* OutlineView.swift */; };
 		6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DACB052243C048000B85153 /* PlaylistRow.swift */; };
 		6DACB055243C0CD200B85153 /* PlaylistList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DACB054243C0CD200B85153 /* PlaylistList.swift */; };
 		6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */; };
-		6DBE4C87243E774D001CC79A /* TrackCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE4C86243E774D001CC79A /* TrackCollection.swift */; };
 		6DC1256624524390007D8652 /* PlaylistSplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC1256524524390007D8652 /* PlaylistSplitView.swift */; };
 		6DD16EB824422F5400BFC4D5 /* MainWindowTitlebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD16EB724422F5400BFC4D5 /* MainWindowTitlebar.swift */; };
 		6DD16EBA244288EA00BFC4D5 /* ITunesTracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD16EB9244288EA00BFC4D5 /* ITunesTracks.swift */; };
-		6DE14BC92450CC8500FCB029 /* Playlist+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE14BC72450CC8500FCB029 /* Playlist+CoreData.swift */; };
-		6DE3FC39242E61670084CFDD /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE3FC38242E61670084CFDD /* Track.swift */; };
-		6DE3FC3A242E61670084CFDD /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DE3FC38242E61670084CFDD /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,26 +104,27 @@
 		6D019AD924241632004CB2E2 /* VibeChecker-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VibeChecker-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_iOSUITests.swift; sourceTree = "<group>"; };
 		6D019ADF24241632004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D07A05924730FD300AD41F3 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		6D07A05E24731DA900AD41F3 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		6D0BB0AE24391C08005D6A83 /* TrackRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRow.swift; sourceTree = "<group>"; };
 		6D0BB0B02439200C005D6A83 /* TrackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackList.swift; sourceTree = "<group>"; };
 		6D0BB0B224392C59005D6A83 /* TrackDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetail.swift; sourceTree = "<group>"; };
-		6D0CB9482437CA9A00967BDD /* persistentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = persistentContainer.swift; sourceTree = "<group>"; };
 		6D53737A242958CE00D4BB7D /* iTunesLibraryObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesLibraryObjects.swift; sourceTree = "<group>"; };
 		6D62D7D02416F743007A0346 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		6D6A24BF243BC1BA00D217E9 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		6D6A24BF243BC1BA00D217E9 /* Playlist+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+Extensions.swift"; sourceTree = "<group>"; };
 		6D92009A2432943B005D438A /* iTunesPlaylists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesPlaylists.swift; sourceTree = "<group>"; };
 		6D99076224620927006EC46E /* OutlineNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineNode.swift; sourceTree = "<group>"; };
 		6D99076424620960006EC46E /* OutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineView.swift; sourceTree = "<group>"; };
 		6DACB052243C048000B85153 /* PlaylistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistRow.swift; sourceTree = "<group>"; };
 		6DACB054243C0CD200B85153 /* PlaylistList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistList.swift; sourceTree = "<group>"; };
 		6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistDetail.swift; sourceTree = "<group>"; };
-		6DBE4C86243E774D001CC79A /* TrackCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCollection.swift; sourceTree = "<group>"; };
+		6DBE4C86243E774D001CC79A /* TrackContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackContainer.swift; sourceTree = "<group>"; };
 		6DC1256524524390007D8652 /* PlaylistSplitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistSplitView.swift; sourceTree = "<group>"; };
 		6DC5CF1324119D30004E090B /* VibeChecker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VibeChecker.xcdatamodel; sourceTree = "<group>"; };
 		6DD16EB724422F5400BFC4D5 /* MainWindowTitlebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowTitlebar.swift; sourceTree = "<group>"; };
 		6DD16EB9244288EA00BFC4D5 /* ITunesTracks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITunesTracks.swift; sourceTree = "<group>"; };
 		6DE14BC72450CC8500FCB029 /* Playlist+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Playlist+CoreData.swift"; sourceTree = "<group>"; };
-		6DE3FC38242E61670084CFDD /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		6DE3FC38242E61670084CFDD /* Track+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Track+Extensions.swift"; sourceTree = "<group>"; };
 		D9BABE8D462D688EB395F8A1 /* Pods-VibeChecker-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VibeChecker-macOS.debug.xcconfig"; path = "Target Support Files/Pods-VibeChecker-macOS/Pods-VibeChecker-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,7 +178,6 @@
 		6D019A81242415FC004CB2E2 /* VibeChecker-macOS */ = {
 			isa = PBXGroup;
 			children = (
-				6D0CB9482437CA9A00967BDD /* persistentContainer.swift */,
 				6D019A82242415FC004CB2E2 /* AppDelegate.swift */,
 				6DD16EB724422F5400BFC4D5 /* MainWindowTitlebar.swift */,
 				6D019A84242415FC004CB2E2 /* ContentView.swift */,
@@ -268,6 +262,7 @@
 		6D019AEB24241695004CB2E2 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				6D716D7C2469CF7B002E9889 /* Models */,
 				6D5373792429587000D4BB7D /* Models-CoreData */,
 			);
 			path = Shared;
@@ -287,10 +282,10 @@
 			isa = PBXGroup;
 			children = (
 				6DC5CF1224119D30004E090B /* VibeChecker.xcdatamodeld */,
-				6DE3FC38242E61670084CFDD /* Track.swift */,
+				6DE3FC38242E61670084CFDD /* Track+Extensions.swift */,
 				6DE14BC72450CC8500FCB029 /* Playlist+CoreData.swift */,
-				6D6A24BF243BC1BA00D217E9 /* Playlist.swift */,
-				6DBE4C86243E774D001CC79A /* TrackCollection.swift */,
+				6D6A24BF243BC1BA00D217E9 /* Playlist+Extensions.swift */,
+				6DBE4C86243E774D001CC79A /* TrackContainer.swift */,
 			);
 			path = "Models-CoreData";
 			sourceTree = "<group>";
@@ -308,6 +303,15 @@
 				6DB3CFCC2443BDED00FDE6D5 /* PlaylistDetail.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		6D716D7C2469CF7B002E9889 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6D07A05924730FD300AD41F3 /* Track.swift */,
+				6D07A05E24731DA900AD41F3 /* Playlist.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		6D990761246208D7006EC46E /* OutlineView */ = {
@@ -633,26 +637,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D0BB0B12439200C005D6A83 /* TrackList.swift in Sources */,
+				6D07A05F24731DA900AD41F3 /* Playlist.swift in Sources */,
 				6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */,
 				6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */,
 				6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */,
 				6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */,
 				6D99076324620927006EC46E /* OutlineNode.swift in Sources */,
 				6D99076524620960006EC46E /* OutlineView.swift in Sources */,
-				6DE3FC39242E61670084CFDD /* Track.swift in Sources */,
 				6D019A83242415FC004CB2E2 /* AppDelegate.swift in Sources */,
-				6D0CB9492437CA9A00967BDD /* persistentContainer.swift in Sources */,
-				6DE14BC92450CC8500FCB029 /* Playlist+CoreData.swift in Sources */,
 				6DD16EB824422F5400BFC4D5 /* MainWindowTitlebar.swift in Sources */,
 				6DACB055243C0CD200B85153 /* PlaylistList.swift in Sources */,
 				6D0BB0B324392C59005D6A83 /* TrackDetail.swift in Sources */,
-				6DBE4C87243E774D001CC79A /* TrackCollection.swift in Sources */,
-				6D019AE924241665004CB2E2 /* VibeChecker.xcdatamodeld in Sources */,
-				6D6A24C0243BC1BA00D217E9 /* Playlist.swift in Sources */,
 				6D0BB0AF24391C08005D6A83 /* TrackRow.swift in Sources */,
 				6DD16EBA244288EA00BFC4D5 /* ITunesTracks.swift in Sources */,
 				6D53737B242958CE00D4BB7D /* iTunesLibraryObjects.swift in Sources */,
 				6DC1256624524390007D8652 /* PlaylistSplitView.swift in Sources */,
+				6D07A05A24730FD300AD41F3 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,10 +678,8 @@
 			files = (
 				6D019AB924241631004CB2E2 /* AppDelegate.swift in Sources */,
 				6D019ABB24241631004CB2E2 /* SceneDelegate.swift in Sources */,
-				6D019AEA24241666004CB2E2 /* VibeChecker.xcdatamodeld in Sources */,
 				6D019AC024241631004CB2E2 /* ContentView.swift in Sources */,
 				6D019ABE24241631004CB2E2 /* VibeChecker_iOS.xcdatamodeld in Sources */,
-				6DE3FC3A242E61670084CFDD /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

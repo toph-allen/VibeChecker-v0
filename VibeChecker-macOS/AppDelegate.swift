@@ -36,7 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         toolbarHostingView.frame.size = toolbarHostingView.fittingSize
         titlebarAccessory.view = toolbarHostingView
         titlebarAccessory.layoutAttribute = .leading
-        // titlebarAccessory.view = NSHostingView(rootView: toolbarView)
         
         window.toolbar = .init()
         window.titleVisibility = .hidden
@@ -81,28 +80,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - Core Data Saving and Undo support
 
-    @IBAction func saveAction(_ sender: AnyObject?) {
-        // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
-        let context = persistentContainer.viewContext
+//    @IBAction func saveAction(_ sender: AnyObject?) {
+//        // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+//    }
 
-        if !context.commitEditing() {
-            NSLog("\(NSStringFromClass(type(of: self))) unable to commit editing before saving")
-        }
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                // Customize this code block to include application-specific recovery steps.
-                let nserror = error as NSError
-                NSApplication.shared.presentError(nserror)
-            }
-        }
-    }
-
-    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
-        // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
-        return persistentContainer.viewContext.undoManager
-    }
+//    func windowWillReturnUndoManager(window: NSWindow) -> UndoManager? {
+//        // Returns the NSUndoManager for the application. In this case, the manager returned is that of the managed object context for the application.
+//    }
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.

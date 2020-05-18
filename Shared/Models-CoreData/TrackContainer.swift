@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  TrackContainer.swift
 //  VibeChecker-macOS
 //
 //  Created by Toph Allen on 4/8/20.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TrackCollection {
+protocol TrackContainer {
     var tracks: [Track] { get }
 }
