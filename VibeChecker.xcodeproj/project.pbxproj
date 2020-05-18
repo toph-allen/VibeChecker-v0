@@ -25,7 +25,9 @@
 		6D019AD324241632004CB2E2 /* VibeChecker_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019AD224241632004CB2E2 /* VibeChecker_iOSTests.swift */; };
 		6D019ADE24241632004CB2E2 /* VibeChecker_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */; };
 		6D07A05A24730FD300AD41F3 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A05924730FD300AD41F3 /* Track.swift */; };
-		6D07A05F24731DA900AD41F3 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A05E24731DA900AD41F3 /* Playlist.swift */; };
+		6D07A05F24731DA900AD41F3 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A05E24731DA900AD41F3 /* Container.swift */; };
+		6D07A061247320C500AD41F3 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A060247320C500AD41F3 /* Folder.swift */; };
+		6D07A063247320D300AD41F3 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D07A062247320D300AD41F3 /* Playlist.swift */; };
 		6D0BB0AF24391C08005D6A83 /* TrackRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BB0AE24391C08005D6A83 /* TrackRow.swift */; };
 		6D0BB0B12439200C005D6A83 /* TrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BB0B02439200C005D6A83 /* TrackList.swift */; };
 		6D0BB0B324392C59005D6A83 /* TrackDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0BB0B224392C59005D6A83 /* TrackDetail.swift */; };
@@ -105,7 +107,9 @@
 		6D019ADD24241632004CB2E2 /* VibeChecker_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibeChecker_iOSUITests.swift; sourceTree = "<group>"; };
 		6D019ADF24241632004CB2E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D07A05924730FD300AD41F3 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
-		6D07A05E24731DA900AD41F3 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		6D07A05E24731DA900AD41F3 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		6D07A060247320C500AD41F3 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		6D07A062247320D300AD41F3 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		6D0BB0AE24391C08005D6A83 /* TrackRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRow.swift; sourceTree = "<group>"; };
 		6D0BB0B02439200C005D6A83 /* TrackList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackList.swift; sourceTree = "<group>"; };
 		6D0BB0B224392C59005D6A83 /* TrackDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackDetail.swift; sourceTree = "<group>"; };
@@ -309,7 +313,9 @@
 			isa = PBXGroup;
 			children = (
 				6D07A05924730FD300AD41F3 /* Track.swift */,
-				6D07A05E24731DA900AD41F3 /* Playlist.swift */,
+				6D07A05E24731DA900AD41F3 /* Container.swift */,
+				6D07A060247320C500AD41F3 /* Folder.swift */,
+				6D07A062247320D300AD41F3 /* Playlist.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -637,9 +643,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D0BB0B12439200C005D6A83 /* TrackList.swift in Sources */,
-				6D07A05F24731DA900AD41F3 /* Playlist.swift in Sources */,
+				6D07A05F24731DA900AD41F3 /* Container.swift in Sources */,
 				6D92009B2432943B005D438A /* iTunesPlaylists.swift in Sources */,
 				6DACB053243C048000B85153 /* PlaylistRow.swift in Sources */,
+				6D07A063247320D300AD41F3 /* Playlist.swift in Sources */,
 				6DB3CFCD2443BDED00FDE6D5 /* PlaylistDetail.swift in Sources */,
 				6D019A85242415FC004CB2E2 /* ContentView.swift in Sources */,
 				6D99076324620927006EC46E /* OutlineNode.swift in Sources */,
@@ -653,6 +660,7 @@
 				6D53737B242958CE00D4BB7D /* iTunesLibraryObjects.swift in Sources */,
 				6DC1256624524390007D8652 /* PlaylistSplitView.swift in Sources */,
 				6D07A05A24730FD300AD41F3 /* Track.swift in Sources */,
+				6D07A061247320C500AD41F3 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
