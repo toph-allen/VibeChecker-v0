@@ -11,53 +11,35 @@ import RealmSwift
 
 
 // Parent class for VibeChecker containers
-class Container: Object, Identifiable, OutlineRepresentable {
-// WHYYYY can this not conform to the fucking protocol?
+class Container: Object, Identifiable {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
     @objc dynamic var iTunesPersistentID: String? = nil
     
-    @objc dynamic var parent: Container? = nil
-    var children: [Container]? {
-        return Array(LinkingObjects(fromType: Container.self, property: "parent"))
-    }
-    
-    @objc dynamic var playlist: Playlist? = nil
-    
-    var hasContent: Bool {
-        if playlist != nil {
-            return true
-        } else {
-            return false
-        }
-    }
+    @objc dynamic var parent: Folder? = nil
 
-    override class func primaryKey() -> String? {
+    override class func primaryKey() -> String? {  
         return "id"
     }
 }
 
 
 
+class Folder: Container, OutlineRepresentable {
+    var children: [OutlineRepresentable]? {
+        let linkingFolders = LinkingObjects(fromType: Folder.self, property: "parent")
+        let linkingPlaylists = LinkingObjects(fromType: Playlist.self, property: "parent")
+        
+    }
+    
+    var hasContent: Bool = false
+}
 
 
 // Playlists contain Tracks
 class Playlist: Object {
     let tracks = List<Track>()
 }
-
-
-class Folder: Container, OutlineRepresentable {
-    
-    var children: [Container]? {
-        return Array(LinkingObjects(fromType: Container.self, property: "parent"))
-    }
-    
-    var hasContent: Bool {
-        return false
-    }
-}
-
 
 
 

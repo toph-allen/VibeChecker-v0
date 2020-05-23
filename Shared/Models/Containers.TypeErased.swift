@@ -16,6 +16,7 @@
 //    @objc dynamic var name = ""
 //    @objc dynamic var iTunesPersistentID: String? = nil
 //
+//    @objc dynamic var parent: Folder?
 //
 //    override class func primaryKey() -> String? {
 //        return "id"
@@ -23,8 +24,7 @@
 //}
 //
 //// Folders contain Containers
-//class Folder: Container {
-//    let children = List<AnyContainer>()
+//class Folder: Container, Outline {
 //}
 //
 //// Playlists contain Tracks
@@ -32,13 +32,10 @@
 //    let tracks = List<Track>()
 //}
 //
-//
 //// Following example on GitHub: https://github.com/realm/realm-cocoa/issues/1109#issuecomment-228144729
 //class AnyContainer: Object, OutlineRepresentable {
 //    @objc dynamic var typeName: String = ""
 //    @objc dynamic var primaryKey: String = ""
-//    
-//    @objc dynamic var containingFolder: Folder? = nil
 //
 //    // A list of all subclasses that this wrapper can store
 //    static let supportedClasses: [Container.Type] = [
@@ -78,26 +75,15 @@
 //        }
 //        return value
 //    }
+//
+//    var parent: AnyContainer? {
+//        return
+//    }
 //}
 ///// Caveats
 ///// - Inverse relationships on Container will not work properly. As a workaround, place the inverse relationship on AnyContainer.
 ///// - Containers will not be recursively added to Realm when an object containing an AnyPaymentMethod is added to Realm. Make sure you add each PaymentMethod individually.
 ///// - All subclasses supported by AnyPaymentMethod must use the same type of primary key (though it does not need to be String).
-//
-//
-//extension AnyContainer: OutlineRepresentable {
-//    var name: String {
-//        return value.name
-//    }
-//    
-//    var parent:
-//    
-//    var children {
-//        LinkingObjects(fromType: Folder.self, property: "parent")
-//    }
-//    
-//    var hasContent: Bool
-//}
 //
 //
 //// For use if I go with a different solution
