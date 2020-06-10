@@ -30,10 +30,10 @@ extension View {
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(entity: Playlist.entity(), sortDescriptors: [], predicate: nil) var playlists: FetchedResults<Playlist>
+    @FetchRequest(entity: Container.entity(), sortDescriptors: [], predicate: nil) var containers: FetchedResults<Container>
 
     var body: some View {
-        PlaylistSplitView(items: playlists)
+        PlaylistSplitView(items: Array(containers)) // FIXME: I'm just doing what James suggested and converting to array lol
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .frame(minWidth: 640, minHeight: 480)
             .debug()

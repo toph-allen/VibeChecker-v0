@@ -17,13 +17,13 @@ struct PlaylistDetail: View {
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
-                Text(playlist.name).font(.title)
+                Text(playlist.name ?? "").font(.title)
                 Text("Parent Playlist: \(playlist.parent?.name ?? "")")
-                Text("ID: \(playlist.id.uuidString)")
+                Text("ID: \(playlist.id?.uuidString ?? "")")
                 Text("iTunes ID: \(playlist.iTunesPersistentID ?? "")")
             }.padding()
             NavigationView {
-                TrackList(tracks: self.playlist.tracks, selectedTrack: self.$selectedTrack)
+                TrackList(tracks: self.playlist.playlistTracks as? Set<PlaylistTrack>, selectedTrack: self.$selectedTrack)
                 TrackDetail(track: self.selectedTrack)
             }
         }

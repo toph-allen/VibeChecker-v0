@@ -8,20 +8,20 @@
 
 import SwiftUI
 
-struct PlaylistSplitView<T: RandomAccessCollection>: View where T.Element == Playlist {
-    var outlineTree: OutlineTree<Playlist, T>
-    @State var selectedItem: OutlineNode<Playlist>? = nil
+struct PlaylistSplitView: View {
+    var outlineTree: OutlineTree
+    @State var selectedItem: OutlineNode? = nil
     
-    init(items: T) {
+    init(items: [Container]) {
         outlineTree = OutlineTree(representedObjects: items, name: "Playlists")
     }
     
     var body: some View {
         NavigationView {
-            OutlineSection<Playlist, T>(selectedItem: $selectedItem).environmentObject(outlineTree)
+            OutlineSection(selectedItem: $selectedItem).environmentObject(outlineTree)
                 .frame(minWidth: 192, idealWidth: 192, maxWidth: 256, maxHeight: .infinity)
             if selectedItem != nil {
-                PlaylistDetail(playlist: selectedItem!.representedObject!)
+                PlaylistDetail(playlist: selectedItem!.item! as! Playlist)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }

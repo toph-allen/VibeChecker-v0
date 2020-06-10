@@ -11,8 +11,8 @@ import Combine
 
 
 // This view handles displaying the contents of each row for its object. Clicking its arrow image also toggles a node's open state.
-struct OutlineRow<T: OutlineRepresentable>: View {
-    @ObservedObject var node: OutlineNode<T>
+struct OutlineRow: View {
+    @ObservedObject var node: OutlineNode
     var level: CGFloat
     
     var body: some View {
@@ -51,9 +51,9 @@ struct OutlineRow<T: OutlineRepresentable>: View {
 }
 
 
-struct OutlineBranch<T: OutlineRepresentable>: View {
-    @ObservedObject var node: OutlineNode<T>
-    @Binding var selectedItem: OutlineNode<T>?
+struct OutlineBranch: View {
+    @ObservedObject var node: OutlineNode
+    @Binding var selectedItem: OutlineNode?
     var level: CGFloat
     
     @ViewBuilder
@@ -93,9 +93,9 @@ struct OutlineBranch<T: OutlineRepresentable>: View {
 }
 
 
-struct OutlineSection<T: OutlineRepresentable, U: RandomAccessCollection>: View where U.Element == T {
-    @EnvironmentObject var outlineTree: OutlineTree<T, U>  // We need to keep the tree outside of the object itself.
-    @Binding var selectedItem: OutlineNode<T>? // Maybe this could be a value for a subtree?
+struct OutlineSection: View {
+    @EnvironmentObject var outlineTree: OutlineTree  // We need to keep the tree outside of the object itself.
+    @Binding var selectedItem: OutlineNode? // Maybe this could be a value for a subtree?
     
     // init(items: [T], selectedItem: Binding<NodeType?>) {
     //     self.outlineTree = OutlineTree(representedObjects: items)
@@ -108,7 +108,7 @@ struct OutlineSection<T: OutlineRepresentable, U: RandomAccessCollection>: View 
         List {
             // The padding in the section header is there to adjust for the inset hack.
             Section(header: Text(self.outlineTree.name ?? "").padding(.leading, 8)) {
-                OutlineBranch<T>(node: self.outlineTree.rootNode, selectedItem: self.$selectedItem, level: -1)
+                OutlineBranch(node: self.outlineTree.rootNode, selectedItem: self.$selectedItem, level: -1)
             }
             .collapsible(false)
         }

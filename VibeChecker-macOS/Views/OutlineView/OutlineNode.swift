@@ -8,47 +8,38 @@
 
 import Foundation
 
-let foldersHaveContent: Bool = false
 
 
-protocol OutlineRepresentable: ObservableObject, Identifiable, Hashable {
-    var name: String { get }
-    var children: [Self]? { get }
-    var parent: Self? { get }
-    var hasContent: Bool { get }
-}
-// TODO: The way to go forward with this is to then give OutlineNode an `init()` method for OutlineRepresentable objects, and then maybe to give RootItem a similar method? And also to make a class? of object called OutlineViewData, and give it a method to init from a random access collection of OutlineRepresentable items.
+
 // Maybe I need to move the equatable and hashable requirements to *here*, because then OutlineNode's equatable and hashable things will be based off of its .item. Like its `.hash()` function would just be `.item.hash()`?
 
 
-class OutlineNode<T: OutlineRepresentable>: ObservableObject, Identifiable, Hashable {
+class OutlineNode: ObservableObject, Identifiable, Hashable {
     // var id: UUID = UUID()
-    var representedObject: T?
+    var item: Container?
     var children: [OutlineNode]?
     var parent: OutlineNode?
     var selectable: Bool = true
     @Published var open: Bool = false
     
     // Make it conform to identifiable etc. by using its item's properties
-    var id: T.ID? {
+    var id: UUID? {
         get {
-            return self.representedObject?.id
+            return self.item?.id
         }
     }
     
     var name: String {
         get {
-            return self.representedObject?.name ?? ""
+            return self.item?.name ?? ""
         }
     }
     
     var isLeaf: Bool {
-        get {
-            if self.children == nil {
-                return true
-            } else {
-                return self.children!.count == 0
-            }
+        if item is Folder {
+            return false
+        } else {
+            return true
         }
     }
     
@@ -76,14 +67,16 @@ class OutlineNode<T: OutlineRepresentable>: ObservableObject, Identifiable, Hash
         hasher.combine(id)
     }
     
-    init(representedObject: T?, parent: OutlineNode? = nil) {
-        self.representedObject = representedObject
+    init(item: Container, parent: OutlineNode? = nil) {
+        self.item = item
         
         // If represented objects have children, make child nodes, passing self as parent.
-        if self.representedObject?.children != nil {
-            self.children = [OutlineNode]()
-            for child in representedObject!.children! {
-                self.children!.append(OutlineNode(representedObject: child, parent: self))
+        if let folder = item as? Folder {
+            self.children = []
+            if folder.children != nil {
+                for case let child as Container in folder.children! {
+                    self.children!.append(OutlineNode(item: child, parent: self))
+                }
             }
         }
         
@@ -99,18 +92,22 @@ class OutlineNode<T: OutlineRepresentable>: ObservableObject, Identifiable, Hash
 }
 
 // This change should make it so that I can initialize this with any random access collection.
-class OutlineTree<T: OutlineRepresentable, U: RandomAccessCollection>: ObservableObject where U.Element == T {
-    var representedObjects: U
-    var rootNode: OutlineNode<T>
+class OutlineTree: ObservableObject {
+    var representedObjects: [Container]
+    var rootNode: OutlineNode
     var name: String?
     
-    init(representedObjects: U, name: String? = nil) {
+    init(representedObjects: [Container], name: String? = nil) {
         self.representedObjects = representedObjects
-        let rootChildren = representedObjects.filter({
-            $0.parent == nil
+        let rootChildren = self.representedObjects.filter({
+            let object = $0
+            return object.parent == nil
         }).map({ representedObject in
-            OutlineNode(representedObject: representedObject)
+            OutlineNode(item: representedObject)
         })
+        for child in rootChildren {
+            print(child.name)
+        }
         self.rootNode = OutlineNode(children: rootChildren)
         self.name = name
     }

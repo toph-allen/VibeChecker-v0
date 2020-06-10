@@ -11,9 +11,25 @@ import SwiftUI
 import CoreData
 
 
-struct TrackList<T: RandomAccessCollection>: View where T.Element == Track {
-    var tracks: T
+struct TrackList: View {
+    var tracks: [Track]
     @Binding var selectedTrack: Track?
+    
+    init(tracks: [Track], selectedTrack: Binding<Track?>) {
+        self.tracks = tracks
+        self._selectedTrack = selectedTrack
+    }
+    
+    init(tracks: Set<PlaylistTrack>?, selectedTrack: Binding<Track?>) {
+        if tracks == nil {
+            self.tracks = []
+        } else {
+            self.tracks = tracks?
+                .sorted(by: { $0.order < $1.order })
+                .map({ $0.track }) as! [Track]
+        }
+        self._selectedTrack = selectedTrack
+    }
     
     var body: some View {
         List(selection: $selectedTrack) {

@@ -29,40 +29,17 @@ struct ToolbarButtonView: View {
         ZStack {
             Color.clear
             HStack {
-                if tracks.isEmpty {
-                    Button(action: {
-                        importITunesTracks()
-                    }) {
-                        Text("Import Tracks").offset(x: 0, y: 1)
-                    }
-                } else {
-                    Button(action: {
-                        deleteITunesTracks()
-                    }) {
-                        Text("Delete Tracks").offset(x: 0, y: 1)
-                    }
-                }
                 if playlists.isEmpty {
                     Button(action: {
-                        importITunesPlaylists()
+                        importEverything()
                     }) {
-                        Text("Import Playlists").offset(x: 0, y: 1)
+                        Text("Import Everything").offset(x: 0, y: 1)
                     }
                 } else {
                     Button(action: {
-                        importITunesPlaylists()
+                        deleteEverything()
                     }) {
-                        Text("Update Playlists").offset(x: 0, y: 1)
-                    }
-                    Button(action: {
-                        deleteITunesPlaylists()
-                    }) {
-                        Text("Delete Playlists").offset(x: 0, y: 1)
-                    }
-                    Button(action: {
-                        addParentsToPlaylists()
-                    }) {
-                        Text("Add Playlist Parents").offset(x: 0, y: 1)
+                        Text("Delete Everything").offset(x: 0, y: 1)
                     }
                 }
             }.font(.caption)
