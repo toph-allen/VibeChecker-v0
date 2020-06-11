@@ -19,13 +19,20 @@ struct OutlineRow: View {
     var body: some View {
         HStack {
             if !node.isLeaf {
-                Image(node.open == false ? "arrowtriangle.right.fill.13-regular-small" : "arrowtriangle.down.fill.13-regular-small")
-                    .renderingMode(.template)
-                    .foregroundColor(Color.secondary)
-                    .onTapGesture {
-                        self.node.open.toggle()
+                ZStack { // This and the Rectangle() are a hack to make the clickable area of the triangle bigger.
+                    Image(node.open == false ? "arrowtriangle.right.fill.13-regular-small" : "arrowtriangle.down.fill.13-regular-small")
+                        .renderingMode(.template)
+                        .foregroundColor(Color.secondary)
+                        .frame(width: 16, height: 16)
+                    Rectangle()
+                        .opacity(0.001)
+                        .frame(width: 18, height: 24)
+                        .layoutPriority(-1)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            self.node.open.toggle()
                     }
-                    .frame(width: 16, height: 16)
+                }
             } else {
                 Image("arrowtriangle.right.fill.13-regular-small")
                     .opacity(0)
@@ -45,6 +52,7 @@ struct OutlineRow: View {
             
             Spacer()
         }
+        .frame(height: 16)
         .padding(.vertical, 4)
         .contentShape(Rectangle())
         .padding(.leading, level * 20)

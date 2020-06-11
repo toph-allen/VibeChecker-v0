@@ -198,7 +198,7 @@ class ITunesImporter {
     
     func importITunesTracks() {
         for track in library.allTracks {
-            _ = try! createTrack(from: track)
+            _ = createTrack(from: track)
         }
         try! moc.save()
     }
