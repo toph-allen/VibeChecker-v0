@@ -13,7 +13,7 @@ import CoreData
 // Maybe make the image an enum or use a switch statement
 
 struct PlaylistRow: View {
-    var playlist: Playlist
+    var playlist: Container
     
 
     var body: some View {

@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 import iTunesLibrary
 
-// TODO: Make this only import tracks that are in my library, rather than in any playlist I've saved too.
 
 extension Track {
     /// Returns the track for a given iTunes object.

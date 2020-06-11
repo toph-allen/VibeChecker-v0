@@ -34,7 +34,7 @@ struct ContentView: View {
 
     var body: some View {
         ContainerSplitView(items: Array(containers)) // FIXME: I'm just doing what James suggested and converting to array lol
-            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+//            .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .frame(minWidth: 640, minHeight: 480)
     }
 

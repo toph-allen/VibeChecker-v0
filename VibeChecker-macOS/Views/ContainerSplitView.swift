@@ -23,12 +23,14 @@ struct ContainerSplitView: View {
             OutlineSection(selectedItem: $selectedItem).environmentObject(outlineTree)
                 .frame(minWidth: 192, idealWidth: 192, maxWidth: 256, maxHeight: .infinity)
                 .debug()
-            if selectedItem?.item is Playlist {
-                PlaylistDetail(playlist: selectedItem!.item! as! Playlist)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            } else {
-                EmptyView ()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Group {
+                if selectedItem?.item is Playlist {
+                    PlaylistDetail(playlist: selectedItem!.item as! Playlist)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else {
+                    EmptyView ()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
         }
     }

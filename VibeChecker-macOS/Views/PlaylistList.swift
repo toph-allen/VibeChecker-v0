@@ -11,14 +11,14 @@ import SwiftUI
 import CoreData
 
 
-struct PlaylistList<T: RandomAccessCollection>: View where T.Element == Playlist {
-    var playlists: T
-    @Binding var selectedPlaylist: Playlist?
+struct PlaylistList {
+    var playlists: [Container]
+    @Binding var selectedPlaylist: Container?
     
     var body: some View {
         List(selection: $selectedPlaylist) {
             ForEach(playlists, id: \.id) { playlist in
-                PlaylistRow(playlist: playlist).tag(playlist)
+                PlaylistRow(playlist: playlist as! Playlist).tag(playlist)
             }
         }
     }
@@ -26,18 +26,5 @@ struct PlaylistList<T: RandomAccessCollection>: View where T.Element == Playlist
 
 
 
-struct PlaylistList_Previews: PreviewProvider {
-    static var previews: some View {
-        let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-        let playlists = try! moc.fetch(allPlaylistsRequest)
-        for playlist in playlists {
-            print(playlist.name as Any)
-        }
 
-
-        return PlaylistList(playlists: playlists, selectedPlaylist: .constant(playlists[1]))
-            .previewLayout(.fixed(width: 300, height: 400))
-    }
-}
 

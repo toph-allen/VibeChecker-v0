@@ -15,25 +15,26 @@ import Foundation
 
 
 class OutlineNode: ObservableObject, Identifiable, Hashable {
-    // var id: UUID = UUID()
+    var id: UUID = UUID()
+    var name: String
     var item: Container?
     var children: [OutlineNode]?
     var parent: OutlineNode?
     var selectable: Bool = true
     @Published var open: Bool = false
     
-    // Make it conform to identifiable etc. by using its item's properties
-    var id: UUID? {
-        get {
-            return self.item?.id
-        }
-    }
+//    // Make it conform to identifiable etc. by using its item's properties
+//    var id: UUID? {
+//        get {
+//            return self.item?.id
+//        }
+//    }
     
-    var name: String {
-        get {
-            return self.item?.name ?? ""
-        }
-    }
+//    var name: String {
+//        get {
+//            return self.item?.name ?? ""
+//        }
+//    }
     
     var isLeaf: Bool {
         if item is Folder || children != nil {
@@ -69,6 +70,7 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     
     init(item: Container, parent: OutlineNode? = nil) {
         self.item = item
+        self.name = item.name ?? ""
         
         // If represented objects have children, make child nodes, passing self as parent.
         if let folder = item as? Folder {
@@ -87,6 +89,7 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     }
     
     init(children: [OutlineNode]) {
+        self.name = ""
         for child in children {
             print("Child node: \(child.name)")
         }
@@ -96,21 +99,18 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
 
 // This change should make it so that I can initialize this with any random access collection.
 class OutlineTree: ObservableObject {
-    var representedObjects: [Container]
+//    var representedObjects: [Container]
     var rootNode: OutlineNode
     var name: String?
     
     init(representedObjects: [Container], name: String? = nil) {
-        self.representedObjects = representedObjects
-        let rootChildren = self.representedObjects.filter({
+//        self.representedObjects = representedObjects
+        let rootChildren = representedObjects.filter({
             let object = $0
             return object.parent == nil
         }).map({ representedObject in
             OutlineNode(item: representedObject)
         })
-        for child in rootChildren {
-            print("Top-level playlist: \(child.name)")
-        }
         self.rootNode = OutlineNode(children: rootChildren)
         self.name = name
     }
