@@ -36,7 +36,7 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     }
     
     var isLeaf: Bool {
-        if item is Folder {
+        if item is Folder || children != nil {
             return false
         } else {
             return true
@@ -87,6 +87,9 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     }
     
     init(children: [OutlineNode]) {
+        for child in children {
+            print("Child node: \(child.name)")
+        }
         self.children = children
     }
 }
@@ -106,7 +109,7 @@ class OutlineTree: ObservableObject {
             OutlineNode(item: representedObject)
         })
         for child in rootChildren {
-            print(child.name)
+            print("Top-level playlist: \(child.name)")
         }
         self.rootNode = OutlineNode(children: rootChildren)
         self.name = name

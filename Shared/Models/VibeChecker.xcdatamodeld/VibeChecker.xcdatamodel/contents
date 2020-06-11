@@ -16,6 +16,11 @@
         <attribute name="iTunesPersistentID" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="children" inverseEntity="Folder"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="iTunesPersistentID"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="Folder" representedClassName="Folder" parentEntity="Container" syncable="YES" codeGenerationType="class">
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Container" inverseName="parent" inverseEntity="Container"/>

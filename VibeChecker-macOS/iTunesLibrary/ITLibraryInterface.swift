@@ -29,8 +29,17 @@ class ITLibraryInterface {
         library = try! ITLibrary(apiVersion: "1.0")
         vibeFolder = library.allPlaylists.filter { $0.name == "2. Vibes" }[0]
         
-        allPlaylists = library.allPlaylists.filter {$0.isVisible == true && $0.isMaster == false && $0.distinguishedKind == ITLibDistinguishedPlaylistKind.kindNone}
-        allTracks = library.allMediaItems.filter {$0.mediaKind == ITLibMediaItemMediaKind.kindSong}
+        // Setting these filters here and only interacting with these iTuens objects mean that I'll never accidentally include things I don't want to include.
+        allPlaylists = library.allPlaylists.filter {
+               $0.isVisible == true
+            && $0.isMaster == false
+            && $0.distinguishedKind == .kindNone
+            && ![.genius, .geniusMix, .smart].contains($0.kind)
+        }
+        allTracks = library.allMediaItems.filter {
+               $0.mediaKind == .kindSong
+            && $0.isDRMProtected == false // We only want DRM-free tracks
+        }
 
         for playlist in allPlaylists {
             playlistsByID[playlist.persistentID.uint64String] = playlist
@@ -44,7 +53,9 @@ class ITLibraryInterface {
         guard playlist.parentID != nil else {
             return nil
         }
-        return self.playlistsByID[playlist.parentID!.uint64String]
+        let parent = self.playlistsByID[playlist.parentID!.uint64String]
+        print("iTunes parent name: \(String(describing: parent?.name))")
+        return parent
     }
     
     func ancestorPlaylists(of playlist: ITLibPlaylist) -> [ITLibPlaylist] {

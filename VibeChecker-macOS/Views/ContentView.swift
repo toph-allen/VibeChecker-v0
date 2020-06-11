@@ -33,10 +33,9 @@ struct ContentView: View {
     @FetchRequest(entity: Container.entity(), sortDescriptors: [], predicate: nil) var containers: FetchedResults<Container>
 
     var body: some View {
-        PlaylistSplitView(items: Array(containers)) // FIXME: I'm just doing what James suggested and converting to array lol
+        ContainerSplitView(items: Array(containers)) // FIXME: I'm just doing what James suggested and converting to array lol
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             .frame(minWidth: 640, minHeight: 480)
-            .debug()
     }
 
         // .onAppear(perform: importITunesTracks) // Cannot appear on a variable definition

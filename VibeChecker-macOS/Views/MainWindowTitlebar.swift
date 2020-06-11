@@ -29,19 +29,34 @@ struct ToolbarButtonView: View {
         ZStack {
             Color.clear
             HStack {
-                if playlists.isEmpty {
+                if tracks.isEmpty {
                     Button(action: {
-                        importEverything()
+                        let importer = ITunesImporter(self.moc)
+                        importer.importITunesTracks()
                     }) {
-                        Text("Import Everything").offset(x: 0, y: 1)
+                        Text("Import Tracks").offset(x: 0, y: 1)
                     }
                 } else {
                     Button(action: {
-                        deleteEverything()
+                        deleteTracks()
                     }) {
-                        Text("Delete Everything").offset(x: 0, y: 1)
+                        Text("Delete Tracks").offset(x: 0, y: 1)
                     }
                 }
+//                if playlists.isEmpty {
+                    Button(action: {
+                        let importer = ITunesImporter(self.moc)
+                        importer.importITunesPlaylists()
+                    }) {
+                        Text("Import Playlists").offset(x: 0, y: 1)
+                    }
+//                } else {
+                    Button(action: {
+                        deleteContainers()
+                    }) {
+                        Text("Delete Playlists").offset(x: 0, y: 1)
+                    }
+//                }
             }.font(.caption)
         }
         .padding()

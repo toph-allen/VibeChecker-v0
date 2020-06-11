@@ -15,22 +15,23 @@ struct OutlineRow: View {
     @ObservedObject var node: OutlineNode
     var level: CGFloat
     
+    @ViewBuilder
     var body: some View {
         HStack {
-            Group {
-                if !node.isLeaf {
-                    Image(node.open == false ? "arrowtriangle.right.fill.13-regular-small" : "arrowtriangle.down.fill.13-regular-small")
-                        .renderingMode(.template)
-                        .foregroundColor(Color.secondary)
-                } else {
-                    Image("arrowtriangle.right.fill.13-regular-small")
-                        .opacity(0)
-                }
+            if !node.isLeaf {
+                Image(node.open == false ? "arrowtriangle.right.fill.13-regular-small" : "arrowtriangle.down.fill.13-regular-small")
+                    .renderingMode(.template)
+                    .foregroundColor(Color.secondary)
+                    .onTapGesture {
+                        self.node.open.toggle()
+                    }
+                    .frame(width: 16, height: 16)
+            } else {
+                Image("arrowtriangle.right.fill.13-regular-small")
+                    .opacity(0)
+                    .frame(width: 16, height: 16)
             }
-            .frame(width: 16, height: 16)
-            .onTapGesture {
-                self.node.open.toggle()
-            }
+
             
             Image(!node.isLeaf ? "folder.13-regular-medium" : "music.note.list.13-regular-medium")
                 .renderingMode(.template)
@@ -47,6 +48,7 @@ struct OutlineRow: View {
         .padding(.vertical, 4)
         .contentShape(Rectangle())
         .padding(.leading, level * 20)
+        .debug()
     }
 }
 
@@ -60,7 +62,8 @@ struct OutlineBranch: View {
     var body: some View {
         VStack(spacing: 2) { // spacing: 2 is what List uses
             if level == -1 {
-                EmptyView() // the root node is at
+                EmptyView()
+                    .debug() // the root node is at
             } else {
                 // VStack { // we might not need this to be in a VStack
                 if node == selectedItem {
@@ -70,6 +73,7 @@ struct OutlineBranch: View {
                         .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
                 } else {
                     OutlineRow(node: node, level: level)
+                        .debug()
                         .onTapGesture {
                             if self.node.selectable == true {
                                 self.selectedItem = self.node
@@ -81,7 +85,7 @@ struct OutlineBranch: View {
             if node.isLeaf == false && (node.open == true || level == -1) {
                 ForEach(node.childrenFoldersFirst!, id: \.id) { node in
                     OutlineBranch(node: node, selectedItem: self.$selectedItem, level: self.level + 1)
-                }
+                }.debug()
                 // .padding(.leading, node.isRoot ? 0 : 24)
                 
                 // FIXME: Animation is super-jank
