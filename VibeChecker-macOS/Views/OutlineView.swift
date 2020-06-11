@@ -9,6 +9,20 @@ import Foundation
 import SwiftUI
 import Combine
 
+func imageName(for container: Container) -> String {
+    let prefix: String
+    switch container {
+    case is Folder:
+        prefix = "folder"
+    case is Playlist:
+        prefix = "music.note.list"
+    case is Vibe:
+        prefix = "tag"
+    default:
+        prefix = ""
+    }
+    return prefix + ".13-regular-medium"
+}
 
 // This view handles displaying the contents of each row for its object. Clicking its arrow image also toggles a node's open state.
 struct OutlineRow: View {
@@ -40,7 +54,7 @@ struct OutlineRow: View {
             }
 
             
-            Image(!node.isLeaf ? "folder.13-regular-medium" : "music.note.list.13-regular-medium")
+            Image(imageName(for: node.item!))
                 .renderingMode(.template)
                 .frame(width: 16, height: 16)
                 .padding(.leading, -4)
