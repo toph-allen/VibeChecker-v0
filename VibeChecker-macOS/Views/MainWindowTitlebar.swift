@@ -43,20 +43,20 @@ struct ToolbarButtonView: View {
                         Text("Delete Tracks").offset(x: 0, y: 1)
                     }
                 }
-//                if playlists.isEmpty {
+                if playlists.isEmpty {
                     Button(action: {
                         let importer = ITunesImporter(self.moc)
                         importer.importITunesPlaylists()
                     }) {
                         Text("Import Playlists").offset(x: 0, y: 1)
                     }
-//                } else {
+                } else {
                     Button(action: {
                         deleteContainers()
                     }) {
                         Text("Delete Playlists").offset(x: 0, y: 1)
                     }
-//                }
+                }
             }.font(.caption)
         }
         .padding()
