@@ -70,7 +70,6 @@ struct OutlineRow: View {
         .padding(.vertical, 4)
         .contentShape(Rectangle())
         .padding(.leading, level * 20)
-        .debug()
     }
 }
 
@@ -85,7 +84,6 @@ struct OutlineBranch: View {
         VStack(spacing: 2) { // spacing: 2 is what List uses
             if level == -1 {
                 EmptyView()
-                    .debug() // the root node is at
             } else {
                 // VStack { // we might not need this to be in a VStack
                 if node == selectedItem {
@@ -95,7 +93,6 @@ struct OutlineBranch: View {
                         .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
                 } else {
                     OutlineRow(node: node, level: level)
-                        .debug()
                         .onTapGesture {
                             if self.node.selectable == true {
                                 self.selectedItem = self.node
@@ -107,7 +104,7 @@ struct OutlineBranch: View {
             if node.isLeaf == false && (node.open == true || level == -1) {
                 ForEach(node.childrenFoldersFirst!, id: \.id) { node in
                     OutlineBranch(node: node, selectedItem: self.$selectedItem, level: self.level + 1)
-                }.debug()
+                }
                 // .padding(.leading, node.isRoot ? 0 : 24)
                 
                 // FIXME: Animation is super-jank

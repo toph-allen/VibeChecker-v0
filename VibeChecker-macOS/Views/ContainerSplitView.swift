@@ -22,7 +22,6 @@ struct ContainerSplitView: View {
         NavigationView {
             OutlineSection(selectedItem: $selectedItem).environmentObject(outlineTree)
                 .frame(minWidth: 192, idealWidth: 192, maxWidth: 256, maxHeight: .infinity)
-                .debug()
             Group {
                 if selectedItem?.item is Playlist {
                     PlaylistDetail(playlist: selectedItem!.item as! Playlist)

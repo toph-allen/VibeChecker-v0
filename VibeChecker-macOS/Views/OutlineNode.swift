@@ -90,9 +90,6 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     
     init(children: [OutlineNode]) {
         self.name = ""
-        for child in children {
-            print("Child node: \(child.name)")
-        }
         self.children = children
     }
 }
