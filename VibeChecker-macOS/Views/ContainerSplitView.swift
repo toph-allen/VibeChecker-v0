@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+
+import SwiftUI
+
 struct ContainerSplitView: View {
     var outlineTree: OutlineTree
     @State var selectedItem: OutlineNode? = nil
@@ -27,7 +30,10 @@ struct ContainerSplitView: View {
                     PlaylistDetail(playlist: selectedItem!.item as! Playlist)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
-                    EmptyView ()
+                    Text("No Playlist Selected")
+                        .font(.title)
+                        .fontWeight(.light)
+                        .foregroundColor(.tertiaryLabel)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
             }

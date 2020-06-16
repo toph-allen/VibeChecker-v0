@@ -12,8 +12,8 @@ import CoreData
 
 // Maybe make the image an enum or use a switch statement
 
-struct PlaylistRow: View {
-    var playlist: Container
+struct ContainerRow: View {
+    var container: Container
     
 
     var body: some View {
@@ -25,7 +25,7 @@ struct PlaylistRow: View {
                 // .aspectRatio(contentMode: .fit)
                 // .fixedSize(horizontal: true, vertical: true)
                 // .frame(width: 16, height: 16)
-            Text(playlist.name ?? "")
+            Text(container.name ?? "")
                 .truncationMode(.tail)
                 // .fontWeight(.bold)
                 .allowsTightening(true)
@@ -38,14 +38,14 @@ struct PlaylistRow: View {
 }
 
 
-struct PlaylistRow_Previews: PreviewProvider {
-    static var previews: some View {
-        let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-        let playlist = (try! moc.fetch(allPlaylistsRequest)[0])
-        
-        
-        return PlaylistRow(playlist: playlist).environment(\.managedObjectContext, moc)
-            .previewLayout(.fixed(width: 300, height: 100))
-    }
-}
+//struct PlaylistRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+//        let playlist = (try! moc.fetch(allPlaylistsRequest)[0])
+//        
+//        
+//        return ContainerRow(playlist: playlist).environment(\.managedObjectContext, moc)
+//            .previewLayout(.fixed(width: 300, height: 100))
+//    }
+//}

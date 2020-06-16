@@ -31,7 +31,7 @@ struct ToolbarButtonView: View {
             HStack {
                 if tracks.isEmpty {
                     Button(action: {
-                        let importer = ITunesImporter(self.moc)
+                        let importer = ITunesImporter()
                         importer.importITunesTracks()
                     }) {
                         Text("Import Tracks").offset(x: 0, y: 1)
@@ -45,7 +45,7 @@ struct ToolbarButtonView: View {
                 }
                 if playlists.isEmpty {
                     Button(action: {
-                        let importer = ITunesImporter(self.moc)
+                        let importer = ITunesImporter()
                         importer.importITunesPlaylists()
                     }) {
                         Text("Import Playlists").offset(x: 0, y: 1)

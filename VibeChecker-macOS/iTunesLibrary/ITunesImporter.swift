@@ -24,15 +24,9 @@ enum ContainerCreationError: Error {
 
 class ITunesImporter {
     var library = ITLibraryInterface()
-    var moc: NSManagedObjectContext
+    var persistentContainer = AppDelegate().persistentContainer
     
-    init(_ moc: NSManagedObjectContext) {
-        self.moc = moc
-        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-    }
-
-    
-    func createContainerSubclass(from source: ITLibPlaylist) throws -> Container? {
+    func createContainerSubclass(from source: ITLibPlaylist, in moc: NSManagedObjectContext) throws -> Container? {
         print("Creating container for: \(source.name)")
         var newContainer: Container?
         switch source.kind {
@@ -41,14 +35,14 @@ class ITunesImporter {
             return nil
         case .folder:
             print("This is a folder.")
-            try newContainer = createFolder(from: source)
+            try newContainer = createFolder(from: source, in: moc)
         case .regular:
             if library.vibeFolderInAncestors(of: source) {
                 print("This is a vibe.")
-                try newContainer = createVibe(from: source)
+                try newContainer = createVibe(from: source, in: moc)
             } else {
                 print("This is a playlist.")
-                try newContainer = createPlaylist(from: source)
+                try newContainer = createPlaylist(from: source, in: moc)
                 print("Returned from createPlaylist")
             }
         default:
@@ -64,7 +58,7 @@ class ITunesImporter {
         var parent: Folder?
         if let sourceParent = library.parentPlaylist(of: source) {
             print("This playlist has a parent.")
-            parent = try! createContainerSubclass(from: sourceParent) as! Folder?
+            parent = try! createContainerSubclass(from: sourceParent, in: moc) as! Folder?
             print("Parent's name is \(String(describing: parent?.name)).")
             newContainer!.parent = parent
         }
@@ -75,7 +69,7 @@ class ITunesImporter {
     
     // MARK: Container creation
     
-    func createFolder(from source: ITLibPlaylist) throws -> Folder {
+    func createFolder(from source: ITLibPlaylist, in moc: NSManagedObjectContext) throws -> Folder {
         print("in createFolder()")
         let folder = NSEntityDescription.insertNewObject(forEntityName: "Folder", into: moc) as! Folder
         
@@ -92,7 +86,7 @@ class ITunesImporter {
         return folder
     }
     
-    func createPlaylist(from source: ITLibPlaylist) throws -> Playlist {
+    func createPlaylist(from source: ITLibPlaylist, in moc: NSManagedObjectContext) throws -> Playlist {
         print("in createPlaylist()")
         let playlist = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: moc) as! Playlist
         
@@ -111,21 +105,22 @@ class ITunesImporter {
         var order: Int64 = 0
         for sourceTrack in source.items {
             print("Adding a track for \(String(describing: playlist.name)).")
-            let track = createTrack(from: sourceTrack)
+            let track = createTrack(from: sourceTrack, in: moc)
             print("Adding PlaylistTrack entity for \(String(describing: playlist.name)).")
             let playlistTrack = NSEntityDescription.insertNewObject(forEntityName: "PlaylistTrack", into: moc) as! PlaylistTrack
+            print("Done.")
             playlistTrack.playlist = playlist
             playlistTrack.track = track
             playlistTrack.order = order
 
             order += 1
         }
-//        try! moc.save()
+        try! moc.save()
         print("About to return the playlist.")
         return playlist
     }
     
-    func createVibe(from source: ITLibPlaylist) throws -> Vibe {
+    func createVibe(from source: ITLibPlaylist, in moc: NSManagedObjectContext) throws -> Vibe {
         print("in createVibe()")
         let vibe = NSEntityDescription.insertNewObject(forEntityName: "Vibe", into: moc) as! Vibe
         
@@ -143,15 +138,15 @@ class ITunesImporter {
         // Get tracks for vibe
         
         for sourceTrack in source.items {
-            print("Adding vibe relationship for \(vibe.name)")
-            let track = createTrack(from: sourceTrack)
+            print("Adding vibe relationship for \(String(describing: vibe.name))")
+            let track = createTrack(from: sourceTrack, in: moc)
             vibe.addToTracks(track)
         }
-//        try! moc.save()
+        try! moc.save()
         return vibe
     }
     
-    func createTrack(from source: ITLibMediaItem) -> Track {
+    func createTrack(from source: ITLibMediaItem, in moc: NSManagedObjectContext) -> Track {
         let track = NSEntityDescription.insertNewObject(forEntityName: "Track", into: moc) as! Track
         print("Creating track from \(source.title)")
         track.addedDate = source.addedDate
@@ -193,9 +188,13 @@ class ITunesImporter {
     
     
     func importITunesPlaylists() {
+        let moc = persistentContainer.newBackgroundContext()
+        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        moc.undoManager = nil
+        
         for playlist in library.allPlaylists {
             print("About to create the playlist.")
-            _ = try! createContainerSubclass(from: playlist)
+            _ = try! createContainerSubclass(from: playlist, in: moc)
             print("Returned from createContainerSubclass().")
         }
         print("About to try moc.save()")
@@ -205,8 +204,12 @@ class ITunesImporter {
     
     
     func importITunesTracks() {
+        let moc = persistentContainer.newBackgroundContext()
+        moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        moc.undoManager = nil
+        
         for track in library.allTracks {
-            _ = createTrack(from: track)
+            _ = createTrack(from: track, in: moc)
         }
         try! moc.save()
     }
@@ -216,16 +219,16 @@ class ITunesImporter {
         // This should only run if the library's empty. We could also check for existence every time we try to create.
         importITunesTracks()
         importITunesPlaylists()
-        try! moc.save()
+//        try! moc.save()
     }
 }
 
-func importEverything() -> Void {
-    let appDelegate = NSApplication.shared.delegate as! AppDelegate
-    let moc = appDelegate.persistentContainer.viewContext
-    let importer = ITunesImporter(moc)
-    importer.importITunesLibrary()
-}
+//func importEverything() -> Void {
+//    let appDelegate = NSApplication.shared.delegate as! AppDelegate
+//    let moc = appDelegate.persistentContainer.viewContext
+//    let importer = ITunesImporter(moc)
+//    importer.importITunesLibrary()
+//}
 
 //        let entityType: Container.Type
 //        switch source.kind {

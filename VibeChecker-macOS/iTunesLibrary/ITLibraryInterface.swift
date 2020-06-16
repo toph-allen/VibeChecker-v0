@@ -40,6 +40,7 @@ class ITLibraryInterface {
                $0.mediaKind == .kindSong
             && $0.isDRMProtected == false // We only want DRM-free tracks
         }
+        print(allTracks.count)
 
         for playlist in allPlaylists {
             playlistsByID[playlist.persistentID.uint64String] = playlist

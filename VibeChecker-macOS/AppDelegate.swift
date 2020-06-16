@@ -16,6 +16,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        func countAll<T: NSManagedObject>(entity: T.Type) -> Int {
+            let entityName = String(describing: entity)
+            let request = NSFetchRequest<T>(entityName: entityName)
+            do {
+                return try persistentContainer.viewContext.count(for: request)
+            } catch {
+                print(error.localizedDescription)
+                return 0
+            }
+        }
+        
+        for entity in persistentContainer.managedObjectModel.entities {
+            guard let name = entity.name else { continue }
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: name)
+            let count: Int
+            do {
+                count = try persistentContainer.viewContext.count(for: request)
+            } catch {
+                print(error.localizedDescription)
+                count = 0
+            }
+            print("\(name): \(count)")
+        }
+
+        
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView().environment(\.managedObjectContext, persistentContainer.viewContext)
@@ -76,6 +102,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 fatalError("Unresolved error \(error)")
             }
         })
+        
+        container.viewContext.automaticallyMergesChangesFromParent = true
+        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+//        container.viewContext.undoManager = nil
+        container.viewContext.shouldDeleteInaccessibleFaults = true
+        
         return container
     }()
 

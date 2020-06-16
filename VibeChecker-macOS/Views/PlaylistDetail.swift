@@ -21,10 +21,19 @@ struct PlaylistDetail: View {
                 Text("Parent Playlist: \(playlist.parent?.name ?? "")")
                 Text("ID: \(playlist.id?.uuidString ?? "")")
                 Text("iTunes ID: \(playlist.iTunesPersistentID ?? "")")
-            }.padding()
+            }
+                .padding()
             NavigationView {
                 TrackList(tracks: self.playlist.playlistTracks as? Set<PlaylistTrack>, selectedTrack: self.$selectedTrack)
-                TrackDetail(track: self.selectedTrack)
+                if selectedTrack != nil {
+                    TrackDetail(track: self.selectedTrack)
+                } else {
+                    Text("No Track Selected")
+                        .font(.title)
+                        .fontWeight(.light)
+                        .foregroundColor(.tertiaryLabel)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
         }
     }

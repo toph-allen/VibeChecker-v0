@@ -34,17 +34,30 @@ func deleteContainers() -> Void {
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let moc = appDelegate.persistentContainer.viewContext
     
-    let allContainersRequest: NSFetchRequest<NSFetchRequestResult> = Container.fetchRequest()
+    let allContainersFetchRequest: NSFetchRequest<NSFetchRequestResult> = Container.fetchRequest()
     
     // Create Batch Delete Request
-    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: allContainersRequest)
+    let allContainersBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: allContainersFetchRequest)
     
     do {
-        try moc.execute(batchDeleteRequest)
-        try moc.executeAndMergeChanges(using: batchDeleteRequest)
+//        try moc.execute(allContainersBatchDeleteRequest)
+        try moc.executeAndMergeChanges(using: allContainersBatchDeleteRequest)
         try moc.save()
     } catch {
         print("Could not delete playlists.")
+    }
+    
+    let allPlaylistTracksFetchRequest: NSFetchRequest<NSFetchRequestResult> = PlaylistTrack.fetchRequest()
+    
+    // Create Batch Delete Request
+    let allPlaylistTracksBatchDeleteRequest = NSBatchDeleteRequest(fetchRequest: allPlaylistTracksFetchRequest)
+    
+    do {
+//        try moc.execute(allPlaylistTracksBatchDeleteRequest)
+        try moc.executeAndMergeChanges(using: allPlaylistTracksBatchDeleteRequest)
+        try moc.save()
+    } catch {
+        print("Could not delete playlist track associations.")
     }
 }
 
