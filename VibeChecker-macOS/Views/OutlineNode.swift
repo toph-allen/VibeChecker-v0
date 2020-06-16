@@ -17,10 +17,10 @@ import Foundation
 class OutlineNode: ObservableObject, Identifiable, Hashable {
     var id: UUID = UUID()
     var name: String
-    var item: Container?
-    var children: [OutlineNode]?
-    var parent: OutlineNode?
     var selectable: Bool = true
+    @Published var item: Container?
+    @Published var children: [OutlineNode]?
+    @Published var parent: OutlineNode?
     @Published var open: Bool = false
     
 //    // Make it conform to identifiable etc. by using its item's properties
@@ -96,12 +96,12 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
 
 // This change should make it so that I can initialize this with any random access collection.
 class OutlineTree: ObservableObject {
-//    var representedObjects: [Container]
-    var rootNode: OutlineNode
+    @Published var representedObjects: [Container]
+    @Published var rootNode: OutlineNode
     var name: String?
     
     init(representedObjects: [Container], name: String? = nil) {
-//        self.representedObjects = representedObjects
+        self.representedObjects = representedObjects
         let rootChildren = representedObjects.filter({
             let object = $0
             return object.parent == nil

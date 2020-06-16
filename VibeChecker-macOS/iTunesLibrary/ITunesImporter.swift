@@ -49,6 +49,7 @@ class ITunesImporter {
             } else {
                 print("This is a playlist.")
                 try newContainer = createPlaylist(from: source)
+                print("Returned from createPlaylist")
             }
         default:
             fatalError("Unknown ITLibPlaylistKind type.")
@@ -67,7 +68,7 @@ class ITunesImporter {
             print("Parent's name is \(String(describing: parent?.name)).")
             newContainer!.parent = parent
         }
-        
+        print("About to return from createContainerSubclass.")
         return newContainer
     }
     
@@ -106,12 +107,12 @@ class ITunesImporter {
         playlist.id = UUID.init()
         
 //        Get tracks for playlist
-//        FIXME: This is really slow and super inefficient
         
         var order: Int64 = 0
         for sourceTrack in source.items {
+            print("Adding a track for \(String(describing: playlist.name)).")
             let track = createTrack(from: sourceTrack)
-
+            print("Adding PlaylistTrack entity for \(String(describing: playlist.name)).")
             let playlistTrack = NSEntityDescription.insertNewObject(forEntityName: "PlaylistTrack", into: moc) as! PlaylistTrack
             playlistTrack.playlist = playlist
             playlistTrack.track = track
@@ -119,7 +120,8 @@ class ITunesImporter {
 
             order += 1
         }
-        
+//        try! moc.save()
+        print("About to return the playlist.")
         return playlist
     }
     
@@ -141,10 +143,11 @@ class ITunesImporter {
         // Get tracks for vibe
         
         for sourceTrack in source.items {
+            print("Adding vibe relationship for \(vibe.name)")
             let track = createTrack(from: sourceTrack)
             vibe.addToTracks(track)
         }
-        
+//        try! moc.save()
         return vibe
     }
     
@@ -163,6 +166,7 @@ class ITunesImporter {
         }
         track.title = source.title
         track.trackNumber = Int64(source.trackNumber)
+//        try! moc.save()
         return track
     }
     
@@ -190,9 +194,13 @@ class ITunesImporter {
     
     func importITunesPlaylists() {
         for playlist in library.allPlaylists {
+            print("About to create the playlist.")
             _ = try! createContainerSubclass(from: playlist)
+            print("Returned from createContainerSubclass().")
         }
+        print("About to try moc.save()")
         try! moc.save()
+        print("It finished.")
     }
     
     
