@@ -13,16 +13,14 @@ import CoreData
 struct PlaylistDetail: View {
     var playlist: Playlist
     @State private var selectedTrack: Track?
-
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            VStack(alignment: .leading) {
-                Text(playlist.name ?? "").font(.title)
-                Text("Parent Playlist: \(playlist.parent?.name ?? "")")
-                Text("ID: \(playlist.id?.uuidString ?? "")")
-                Text("iTunes ID: \(playlist.iTunesPersistentID ?? "")")
-            }
+        VStack(alignment: .leading, spacing: 0) {
+            Text(playlist.name ?? "")
+                .font(.title)
+                .background(VisualEffectView(material: .appearanceBased, blendingMode: .withinWindow))
                 .padding()
+            Divider()
             NavigationView {
                 TrackList(tracks: self.playlist.playlistTracks as? Set<PlaylistTrack>, selectedTrack: self.$selectedTrack)
                 if selectedTrack != nil {
@@ -33,6 +31,8 @@ struct PlaylistDetail: View {
                         .fontWeight(.light)
                         .foregroundColor(.tertiaryLabel)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(VisualEffectView(material: .appearanceBased, blendingMode: .behindWindow))
+
                 }
             }
         }
