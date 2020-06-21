@@ -1,31 +1,29 @@
 //
-//  TrackRow.swift
+//  VibeDetail.swift
 //  VibeChecker-macOS
 //
-//  Created by Toph Allen on 4/4/20.
+//  Created by Toph Allen on 6/16/20.
 //  Copyright © 2020 Toph Allen. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
-import CoreData
 
-struct PlaylistDetail: View {
-    var playlist: Playlist
+struct VibeDetail: View {
+    var vibe: Vibe
     @State private var selectedTrack: Track?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading) {
-                Text(playlist.name ?? "")
+                Text(vibe.name ?? "")
                     .font(.title)
-                Text("Playlist • \(playlist.playlistTracks?.count ?? 0) track\(playlist.playlistTracks?.count == 1 ? "" : "s")")
+                Text("Vibe • \(vibe.tracks?.count ?? 0) track\(vibe.tracks?.count == 1 ? "" : "s")")
                     .font(.callout)
                     .foregroundColor(Color.secondaryLabel)
             }.padding()
             Divider()
             NavigationView {
-                TrackList(tracks: self.playlist.playlistTracks as? Set<PlaylistTrack>, selectedTrack: self.$selectedTrack)
+                TrackList(tracks: self.vibe.tracks as? Set<Track>, selectedTrack: self.$selectedTrack)
                 if selectedTrack != nil {
                     TrackDetail(track: self.selectedTrack)
                 } else {
@@ -35,7 +33,7 @@ struct PlaylistDetail: View {
                         .foregroundColor(.tertiaryLabel)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(VisualEffectView(material: .appearanceBased, blendingMode: .behindWindow))
-
+                    
                 }
             }
         }
@@ -43,14 +41,3 @@ struct PlaylistDetail: View {
 }
 
 
-struct PlaylistDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        let moc = (NSApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let allPlaylistsRequest: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-        let playlist = (try! moc.fetch(allPlaylistsRequest).first)!
-
-
-        return PlaylistDetail(playlist: playlist).environment(\.managedObjectContext, moc)
-        .previewLayout(.fixed(width: 500, height: 500))
-    }
-}

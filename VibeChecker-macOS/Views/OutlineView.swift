@@ -7,7 +7,7 @@
 //
 import Foundation
 import SwiftUI
-import Combine
+import Introspect
 
 func imageName(for container: Container) -> String {
     let prefix: String
@@ -129,7 +129,7 @@ struct OutlineSection: View {
     // init(outlineTree: OutlineTree, selected
 
     var body: some View {
-        ScrollView {
+        ScrollView() {
             VStack(alignment: .leading, spacing: 0) {
             Text(self.outlineTree.name ?? "")
                 .font(.system(size: 11, weight: .semibold, design: .default))
@@ -140,7 +140,11 @@ struct OutlineSection: View {
 //                .padding(.top)
             }
         }
+        .introspectScrollView { scrollView in
+            print(scrollView.contentView.bounds.origin)
+        }
         .background(VisualEffectView(material: .appearanceBased, blendingMode: .behindWindow))
+        .offset(x: 0, y: 0)
 //        .padding(.)
         // A hack for list row insets not working. This hack also applies to the section header though.
     }
@@ -155,6 +159,17 @@ struct OutlineSection: View {
 //            .collapsible(false)
 //        }
 //        .listStyle(SidebarListStyle())
+//        .introspectTableView { tableView in
+//            let scrollView = tableView.enclosingScrollView!
+//            print(scrollView.automaticallyAdjustsContentInsets)
+//            scrollView.automaticallyAdjustsContentInsets = false
+//            print(scrollView.automaticallyAdjustsContentInsets)
+//            print(scrollView.contentInsets)
+//            scrollView.contentInsets = NSEdgeInsetsZero
+//            print(scrollView.contentInsets)
+//            scrollView.backgroundColor = NSColor.red
+//            tableView.backgroundColor = NSColor.orange
+//        }
 //        .frame(maxWidth: .infinity, maxHeight: .infinity)
 //        .padding(.leading, -8)
 //        // A hack for list row insets not working. This hack also applies to the section header though.

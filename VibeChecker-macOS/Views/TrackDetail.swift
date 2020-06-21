@@ -19,7 +19,7 @@ struct TrackDetail: View {
                 VStack(alignment: .leading) {
                     Text(track?.title ?? "No Track Selected").font(.title)
                     
-                    Text("\(track?.artistName ?? "") — \(track?.albumTitle ?? "")")
+                    Text("\(track?.artistName ?? "Unknown Artist") — \(track?.albumTitle ?? "Unknown Album")")
                         .font(.subheadline)
                         .padding(.bottom)
                     

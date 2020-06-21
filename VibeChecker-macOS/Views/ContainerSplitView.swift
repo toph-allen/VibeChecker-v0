@@ -29,6 +29,9 @@ struct ContainerSplitView: View {
                 if selectedItem?.item is Playlist {
                     PlaylistDetail(playlist: selectedItem!.item as! Playlist)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                } else if selectedItem?.item is Vibe {
+                    VibeDetail(vibe: selectedItem!.item as! Vibe)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     Text("No Playlist Selected")
                         .font(.title)

@@ -20,6 +20,14 @@ struct TrackList: View {
         self._selectedTrack = selectedTrack
     }
     
+    init(tracks: Set<Track>?, selectedTrack: Binding<Track?>) {
+        if tracks == nil {
+            self.tracks = []
+        }
+        self.tracks = Array(tracks!)
+        self._selectedTrack = selectedTrack
+    }
+    
     init(tracks: [PlaylistTrack], selectedTrack: Binding<Track?>) {
         self.tracks = tracks.map({
             $0.track!
