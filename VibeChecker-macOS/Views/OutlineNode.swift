@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Combine
 
 
 
@@ -19,9 +19,10 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     var name: String
     var selectable: Bool = true
     @Published var item: Container?
-    @Published var children: [OutlineNode]?
+    @Published var children: [OutlineNode] = []
     @Published var parent: OutlineNode?
     @Published var open: Bool = false
+    @Published var level: CGFloat
     
 //    // Make it conform to identifiable etc. by using its item's properties
 //    var id: UUID? {
@@ -37,25 +38,30 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
 //    }
     
     var isLeaf: Bool {
-        if item is Folder || children != nil {
+        if item is Folder {
             return false
         } else {
             return true
         }
     }
     
-    var childrenFoldersFirst: [OutlineNode]? {
+    var visibleDescendants: [OutlineNode] {
         get {
-            guard self.children != nil else {
-                return nil
+            print("visibleDescendants")
+            var descendants: [OutlineNode] = []
+            guard (self.isLeaf == false && self.open == true) || self.level == -1 else {
+                print("in that conditional")
+                print(self.isLeaf)
+                print(self.open)
+                print(self.level == -1)
+                return descendants
             }
-            return self.children!.sorted { c1, c2 in
-                if c1.isLeaf == c2.isLeaf {
-                    return c1.name < c2.name
-                } else {
-                    return !c1.isLeaf && c2.isLeaf // This sorts the trues last?
-                }
+            for child in children {
+                print("adding a child to visibleDescendants")
+                descendants.append(child)
+                descendants.append(contentsOf: child.children)
             }
+            return descendants
         }
     }
     
@@ -72,25 +78,38 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
         self.item = item
         self.name = item.name ?? ""
         
-        // If represented objects have children, make child nodes, passing self as parent.
-        if let folder = item as? Folder {
-            self.children = []
-            if folder.children != nil {
-                for case let child as Container in folder.children! {
-                    self.children!.append(OutlineNode(item: child, parent: self))
-                }
-            }
-        }
-        
         // If we were given a parent, store it.
         if parent != nil {
             self.parent = parent
+            self.level = parent!.level + 1
+        } else {
+            self.level = -1
         }
+        
+        // If represented objects have children, make child nodes, passing self as parent.
+        if let folder = item as? Folder {
+            if folder.children != nil {
+                for case let child as Container in folder.children! {
+                    self.children.append(OutlineNode(item: child, parent: self))
+                }
+            }
+            children.sort { c1, c2 in
+                if c1.isLeaf == c2.isLeaf {
+                    return c1.name < c2.name
+                } else {
+                    return !c1.isLeaf && c2.isLeaf // This sorts the trues last?
+                }
+            }
+
+        }
+        
+
     }
     
     init(children: [OutlineNode]) {
-        self.name = ""
+        self.name = "ROOT"
         self.children = children
+        self.level = -1
     }
 }
 
@@ -98,9 +117,16 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
 class OutlineTree: ObservableObject {
     @Published var representedObjects: [Container]
     @Published var rootNode: OutlineNode
+
     var name: String?
+    var visibleNodes: [OutlineNode] {
+        get {
+            return rootNode.visibleDescendants
+        }
+    }
     
     init(representedObjects: [Container], name: String? = nil) {
+        print("Initializing an OutlineTree")
         self.representedObjects = representedObjects
         let rootChildren = representedObjects.filter({
             let object = $0
@@ -108,8 +134,13 @@ class OutlineTree: ObservableObject {
         }).map({ representedObject in
             OutlineNode(item: representedObject)
         })
-        self.rootNode = OutlineNode(children: rootChildren)
+        self.rootNode = OutlineNode.init(children: rootChildren)
         self.name = name
+        for node in self.visibleNodes {
+            print(node.name)
+        }
+        print(self.rootNode.name)
+        print(self.rootNode.visibleDescendants)
     }
 }
 

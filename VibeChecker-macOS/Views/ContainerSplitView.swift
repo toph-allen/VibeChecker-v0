@@ -12,14 +12,15 @@ import SwiftUI
 import SwiftUI
 
 struct ContainerSplitView: View {
-    var outlineTree: OutlineTree
+    @State var outlineTree: OutlineTree
     @State var selectedItem: OutlineNode? = nil
     
     init(items: [Container]) {
-        outlineTree = OutlineTree(representedObjects: items, name: "Playlists")
-        for item in outlineTree.rootNode.childrenFoldersFirst! {
+        self._outlineTree = State(initialValue: OutlineTree(representedObjects: items, name: "Playlists"))
+        for item in _outlineTree.wrappedValue.visibleNodes {
             print(item.name)
-        }    }
+        }
+    }
     
     var body: some View {
         NavigationView {
