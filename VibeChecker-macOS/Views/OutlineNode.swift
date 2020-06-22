@@ -96,12 +96,37 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
 
 // This change should make it so that I can initialize this with any random access collection.
 class OutlineTree: ObservableObject {
-    @Published var representedObjects: [Container]
+    @Published var representedObjects: Set<Container>
     @Published var rootNode: OutlineNode
     var name: String?
     
+    init(leaves: Set<Container>, name: String? = nil) {
+        var ancestors: Set<Container> = []
+        for leaf in leaves {
+            ancestors = ancestors.union(leaf.ancestors)
+        }
+        let allObjects = leaves.union(ancestors)
+        var rootChildren = allObjects.filter({
+            let object = $0
+            return object.parent == nil
+        }).map({ representedObject in
+            OutlineNode(item: representedObject)
+        })
+        // This is really hacky
+        while rootChildren.count == 1 {
+            if rootChildren[0].isLeaf == false && rootChildren[0].children != nil {
+                rootChildren = rootChildren[0].children!
+            }
+        }
+
+        
+        self.representedObjects = allObjects
+        self.rootNode = OutlineNode(children: rootChildren)
+        self.name = name
+    }
+    
     init(representedObjects: [Container], name: String? = nil) {
-        self.representedObjects = representedObjects
+        self.representedObjects = Set(representedObjects)
         let rootChildren = representedObjects.filter({
             let object = $0
             return object.parent == nil

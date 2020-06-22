@@ -12,19 +12,26 @@ import SwiftUI
 import SwiftUI
 
 struct ContainerSplitView: View {
-    var outlineTree: OutlineTree
+    var vibes: OutlineTree
+    var playlists: OutlineTree
     @State var selectedItem: OutlineNode? = nil
     
-    init(items: [Container]) {
-        outlineTree = OutlineTree(representedObjects: items, name: "Playlists")
-        for item in outlineTree.rootNode.childrenFoldersFirst! {
-            print(item.name)
-        }    }
+    init(vibes: Set<Vibe>, playlists: Set<Playlist>) {
+        self.vibes = OutlineTree(leaves: vibes, name: "Vibes")
+        self.playlists = OutlineTree(leaves: playlists, name: "Playlists")
+    }
     
     var body: some View {
         NavigationView {
-            OutlineSection(selectedItem: $selectedItem).environmentObject(outlineTree)
-                .frame(minWidth: 192, idealWidth: 192, maxWidth: 256, maxHeight: .infinity)
+            VStack() {
+                List {
+                    OutlineSection(selectedItem: $selectedItem).environmentObject(vibes)
+                    OutlineSection(selectedItem: $selectedItem).environmentObject(playlists)
+                }
+            }
+            .listStyle(SidebarListStyle())
+            .padding(EdgeInsets(top: 0, leading: -18, bottom: 0, trailing: -14))
+            .frame(minWidth: 192, idealWidth: 192, maxWidth: 256, maxHeight: .infinity)
             Group {
                 if selectedItem?.item is Playlist {
                     PlaylistDetail(playlist: selectedItem!.item as! Playlist)

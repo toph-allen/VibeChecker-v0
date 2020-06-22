@@ -121,59 +121,13 @@ struct OutlineSection: View {
     @EnvironmentObject var outlineTree: OutlineTree  // We need to keep the tree outside of the object itself.
     @Binding var selectedItem: OutlineNode? // Maybe this could be a value for a subtree?
     
-    // init(items: [T], selectedItem: Binding<NodeType?>) {
-    //     self.outlineTree = OutlineTree(representedObjects: items)
-    //     self._selectedItem = selectedItem
-    // }
-    
-    // init(outlineTree: OutlineTree, selected
-
     var body: some View {
-        ScrollView() {
-            VStack(alignment: .leading, spacing: 0) {
-            Text(self.outlineTree.name ?? "")
-                .font(.system(size: 11, weight: .semibold, design: .default))
-                .foregroundColor(Color.secondaryLabel)
-                .padding(EdgeInsets(top: 8, leading: 9, bottom: 3, trailing: 0))
+        Section(header: Text(self.outlineTree.name ?? "").padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 14))) {
             OutlineBranch(node: self.outlineTree.rootNode, selectedItem: self.$selectedItem, level: -1)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                .padding(.top)
-            }
         }
-        .introspectScrollView { scrollView in
-            print(scrollView.contentView.bounds.origin)
-        }
-        .background(VisualEffectView(material: .appearanceBased, blendingMode: .behindWindow))
-        .offset(x: 0, y: 0)
-//        .padding(.)
-        // A hack for list row insets not working. This hack also applies to the section header though.
+        .collapsible(false)
     }
+        // A hack for list row insets not working. This hack also applies to the section header though.
 }
-    
-//    var body: some View {
-//        List {
-//            // The padding in the section header is there to adjust for the inset hack.
-//            Section(header: Text(self.outlineTree.name ?? "").padding(.leading, 8)) {
-//                OutlineBranch(node: self.outlineTree.rootNode, selectedItem: self.$selectedItem, level: -1)
-//            }
-//            .collapsible(false)
-//        }
-//        .listStyle(SidebarListStyle())
-//        .introspectTableView { tableView in
-//            let scrollView = tableView.enclosingScrollView!
-//            print(scrollView.automaticallyAdjustsContentInsets)
-//            scrollView.automaticallyAdjustsContentInsets = false
-//            print(scrollView.automaticallyAdjustsContentInsets)
-//            print(scrollView.contentInsets)
-//            scrollView.contentInsets = NSEdgeInsetsZero
-//            print(scrollView.contentInsets)
-//            scrollView.backgroundColor = NSColor.red
-//            tableView.backgroundColor = NSColor.orange
-//        }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//        .padding(.leading, -8)
-//        // A hack for list row insets not working. This hack also applies to the section header though.
-//    }
-//}
 
 

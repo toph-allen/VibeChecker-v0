@@ -16,6 +16,20 @@ enum FetchError: Error {
 }
 
 extension Container {
+    var ancestors: [Folder] {
+        get {
+            guard parent != nil else {
+                return []
+            }
+            var ancestors: [Folder] = []
+            ancestors.append(parent!)
+            ancestors.append(contentsOf: parent!.ancestors)
+            return ancestors
+        }
+    }
+}
+
+extension Container {
     /// Returns the container for a given iTunes object.
     class func forITunesPersistentID<T: Container>(_ persistentID: String, in moc: NSManagedObjectContext) throws -> T? {
         let request: NSFetchRequest<NSFetchRequestResult> = fetchRequest()
