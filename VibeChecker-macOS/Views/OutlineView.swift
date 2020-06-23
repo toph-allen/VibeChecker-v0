@@ -5,9 +5,11 @@
 //  Created by Toph Allen on 4/13/20.
 //  Copyright © 2020 Toph Allen. All rights reserved.
 //
+
 import Foundation
 import SwiftUI
 import Introspect
+
 
 func imageName(for container: Container) -> String {
     let prefix: String
@@ -24,7 +26,7 @@ func imageName(for container: Container) -> String {
     return prefix + ".13-regular-medium"
 }
 
-// This view handles displaying the contents of each row for its object. Clicking its arrow image also toggles a node's open state.
+
 struct OutlineRow: View {
     @ObservedObject var node: OutlineNode
     var level: CGFloat
@@ -82,16 +84,14 @@ struct OutlineBranch: View {
     
     @ViewBuilder
     var body: some View {
-        VStack(spacing: 2) { // spacing: 2 is what List uses
+        VStack(spacing: 2) {
             if level == -1 {
                 EmptyView()
             } else {
-                // VStack { // we might not need this to be in a VStack
                 if node == selectedItem {
                     OutlineRow(node: node, level: level)
                         .background(Color.accentColor)
                         .foregroundColor(Color.white)
-//                        .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
                 } else {
                     OutlineRow(node: node, level: level)
                         .onTapGesture {
@@ -106,11 +106,6 @@ struct OutlineBranch: View {
                 ForEach(node.childrenFoldersFirst!, id: \.id) { node in
                     OutlineBranch(node: node, selectedItem: self.$selectedItem, level: self.level + 1)
                 }
-                // .padding(.leading, node.isRoot ? 0 : 24)
-                
-                // FIXME: Animation is super-jank
-                // .transition(.move(edge: .top))
-                // .animation(.linear(duration: 0.1))
             }
         }
     }
@@ -122,12 +117,11 @@ struct OutlineSection: View {
     @Binding var selectedItem: OutlineNode? // Maybe this could be a value for a subtree?
     
     var body: some View {
-        Section(header: Text(self.outlineTree.name ?? "").padding(EdgeInsets(top: 0, leading: 18, bottom: 0, trailing: 14))) {
+        Section(header: Text(self.outlineTree.name ?? "").padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 14))) {
             OutlineBranch(node: self.outlineTree.rootNode, selectedItem: self.$selectedItem, level: -1)
         }
         .collapsible(false)
     }
-        // A hack for list row insets not working. This hack also applies to the section header though.
 }
 
 

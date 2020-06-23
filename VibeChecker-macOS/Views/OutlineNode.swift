@@ -9,11 +9,6 @@
 import Foundation
 
 
-
-
-// Maybe I need to move the equatable and hashable requirements to *here*, because then OutlineNode's equatable and hashable things will be based off of its .item. Like its `.hash()` function would just be `.item.hash()`?
-
-
 class OutlineNode: ObservableObject, Identifiable, Hashable {
     var id: UUID = UUID()
     var name: String
@@ -22,19 +17,6 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     @Published var children: [OutlineNode]?
     @Published var parent: OutlineNode?
     @Published var open: Bool = false
-    
-//    // Make it conform to identifiable etc. by using its item's properties
-//    var id: UUID? {
-//        get {
-//            return self.item?.id
-//        }
-//    }
-    
-//    var name: String {
-//        get {
-//            return self.item?.name ?? ""
-//        }
-//    }
     
     var isLeaf: Bool {
         if item is Folder || children != nil {
@@ -59,7 +41,6 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
         }
     }
     
-    // Should these also be defined using the item
     static func == (lhs: OutlineNode, rhs: OutlineNode) -> Bool {
         return lhs.id == rhs.id
     }
@@ -72,7 +53,6 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
         self.item = item
         self.name = item.name ?? ""
         
-        // If represented objects have children, make child nodes, passing self as parent.
         if let folder = item as? Folder {
             self.children = []
             if folder.children != nil {
@@ -82,7 +62,6 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
             }
         }
         
-        // If we were given a parent, store it.
         if parent != nil {
             self.parent = parent
         }
@@ -94,7 +73,7 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
     }
 }
 
-// This change should make it so that I can initialize this with any random access collection.
+
 class OutlineTree: ObservableObject {
     @Published var representedObjects: Set<Container>
     @Published var rootNode: OutlineNode
@@ -118,8 +97,6 @@ class OutlineTree: ObservableObject {
                 rootChildren = rootChildren[0].children!
             }
         }
-
-        
         self.representedObjects = allObjects
         self.rootNode = OutlineNode(children: rootChildren)
         self.name = name

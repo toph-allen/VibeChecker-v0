@@ -10,14 +10,6 @@ import SwiftUI
 import CoreData
 import Combine
 
-//
-// struct ContentView: View {
-//     var body: some View {
-//         Text("Hello, World!")
-//             .frame(minWidth: 640, minHeight: 480)
-//     }
-// }
-
 
 extension View {
     func debug() -> some View {
@@ -27,29 +19,17 @@ extension View {
 }
 
 
-
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Vibe.entity(), sortDescriptors: [], predicate: nil) var vibes: FetchedResults<Vibe>
     @FetchRequest(entity: Playlist.entity(), sortDescriptors: [], predicate: nil) var playlists: FetchedResults<Playlist>
 
-
     var body: some View {
-        ContainerSplitView(vibes: Set(vibes), playlists: Set(playlists)) // FIXME: I'm just doing what James suggested and converting to array lol
-//            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        ContainerSplitView(vibes: Set(vibes), playlists: Set(playlists))
             .frame(minWidth: 640, minHeight: 480)
     }
-
-        // .onAppear(perform: importITunesTracks) // Cannot appear on a variable definition
-        // .onAppear(perform: importITunesPlaylists) // Cannot appear on a variable definition
 }
 
-
-// struct ContentView_Previews: PreviewProvider {
-//     static var previews: some View {
-//         ContentView()
-//     }
-// }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

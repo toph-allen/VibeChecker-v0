@@ -34,7 +34,7 @@ struct PlaylistDetail: View {
                         .fontWeight(.light)
                         .foregroundColor(.tertiaryLabel)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(VisualEffectView(material: .appearanceBased, blendingMode: .behindWindow))
+                        .background(VisualEffectView(material: .underWindowBackground, blendingMode: .behindWindow))
 
                 }
             }
