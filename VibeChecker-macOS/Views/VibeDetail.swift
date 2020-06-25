@@ -25,7 +25,7 @@ struct VibeDetail: View {
             NavigationView {
                 TrackList(tracks: self.vibe.tracks as? Set<Track>, selectedTrack: self.$selectedTrack)
                 if selectedTrack != nil {
-                    TrackDetail(track: self.selectedTrack)
+                    TrackDetail(track: self.selectedTrack!)
                 } else {
                     Text("No Track Selected")
                         .font(.title)

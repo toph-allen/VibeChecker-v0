@@ -34,7 +34,7 @@ struct PlaylistDetailFR: View {
             }.padding()
             NavigationView {
                 TrackList(tracks: Array(tracks), selectedTrack: self.$selectedTrack)
-                TrackDetail(track: self.selectedTrack)
+                TrackDetail(track: self.selectedTrack!)
             }
         }
     }

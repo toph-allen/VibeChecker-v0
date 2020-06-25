@@ -24,7 +24,7 @@ struct TrackList: View {
         if tracks == nil {
             self.tracks = []
         }
-        self.tracks = Array(tracks!)
+        self.tracks = Array(tracks!).sorted(by: { $0.title ?? "" < $1.title ?? "" })
         self._selectedTrack = selectedTrack
     }
     

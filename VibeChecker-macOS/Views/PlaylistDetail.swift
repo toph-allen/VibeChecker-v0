@@ -27,7 +27,7 @@ struct PlaylistDetail: View {
             NavigationView {
                 TrackList(tracks: self.playlist.playlistTracks as? Set<PlaylistTrack>, selectedTrack: self.$selectedTrack)
                 if selectedTrack != nil {
-                    TrackDetail(track: self.selectedTrack)
+                    TrackDetail(track: self.selectedTrack!)
                 } else {
                     Text("No Track Selected")
                         .font(.title)

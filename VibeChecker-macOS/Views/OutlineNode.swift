@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+// Added "open" param in hacky way cos this is gonna be thrown away eventually
 class OutlineNode: ObservableObject, Identifiable, Hashable {
     var id: UUID = UUID()
     var name: String
@@ -49,7 +49,7 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
         hasher.combine(id)
     }
     
-    init(item: Container, parent: OutlineNode? = nil) {
+    init(item: Container, parent: OutlineNode? = nil, open: Bool = false) {
         self.item = item
         self.name = item.name ?? ""
         
@@ -57,7 +57,7 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
             self.children = []
             if folder.children != nil {
                 for case let child as Container in folder.children! {
-                    self.children!.append(OutlineNode(item: child, parent: self))
+                    self.children!.append(OutlineNode(item: child, parent: self, open: open))
                 }
             }
         }
@@ -65,6 +65,8 @@ class OutlineNode: ObservableObject, Identifiable, Hashable {
         if parent != nil {
             self.parent = parent
         }
+        
+        self.open = open
     }
     
     init(children: [OutlineNode]) {
@@ -79,7 +81,7 @@ class OutlineTree: ObservableObject {
     @Published var rootNode: OutlineNode
     var name: String?
     
-    init(leaves: Set<Container>, name: String? = nil) {
+    init(leaves: Set<Container>, name: String? = nil, openByDefault: Bool = false) {
         var ancestors: Set<Container> = []
         for leaf in leaves {
             ancestors = ancestors.union(leaf.ancestors)
@@ -89,7 +91,7 @@ class OutlineTree: ObservableObject {
             let object = $0
             return object.parent == nil
         }).map({ representedObject in
-            OutlineNode(item: representedObject)
+            OutlineNode(item: representedObject, open: openByDefault)
         })
         // This is really hacky
         while rootChildren.count == 1 {
@@ -102,13 +104,13 @@ class OutlineTree: ObservableObject {
         self.name = name
     }
     
-    init(representedObjects: [Container], name: String? = nil) {
+    init(representedObjects: [Container], name: String? = nil, openByDefault: Bool = false) {
         self.representedObjects = Set(representedObjects)
         let rootChildren = representedObjects.filter({
             let object = $0
             return object.parent == nil
         }).map({ representedObject in
-            OutlineNode(item: representedObject)
+            OutlineNode(item: representedObject, open: openByDefault)
         })
         self.rootNode = OutlineNode(children: rootChildren)
         self.name = name

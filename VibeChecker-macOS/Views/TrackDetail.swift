@@ -11,22 +11,25 @@ import SwiftUI
 import CoreData
 
 struct TrackDetail: View {
-    var track: Track?
+    @State var track: Track
+    @FetchRequest(entity: Vibe.entity(), sortDescriptors: [], predicate: nil) var vibes: FetchedResults<Vibe>
     
     var body: some View {
         ScrollView {
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
-                    Text(track?.title ?? "No Track Selected").font(.title)
+                    Text(track.title ?? "No Track Selected").font(.title)
                     
-                    Text("\(track?.artistName ?? "Unknown Artist") — \(track?.albumTitle ?? "Unknown Album")")
+                    Text("\(track.artistName ?? "Unknown Artist") — \(track.albumTitle ?? "Unknown Album")")
                         .font(.subheadline)
                         .padding(.bottom)
                     
                     HStack {
                         Text("File:")
-                        Text((track?.location?.path ?? "") as String).truncationMode(.head)
+                        Text((track.location?.path ?? "") as String).truncationMode(.head)
                     }
+                    DetailOutlineSection(items: OutlineTree(leaves: Set(vibes), name: "Vibes", openByDefault: true), track: $track)
+
                 }
                 Spacer()
                 
