@@ -188,6 +188,7 @@ class ITunesImporter {
     
     
     func importITunesPlaylists() {
+        print("About to import playlists.")
         let moc = persistentContainer.newBackgroundContext()
         moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         moc.undoManager = nil
@@ -199,11 +200,12 @@ class ITunesImporter {
         }
         print("About to try moc.save()")
         try! moc.save()
-        print("It finished.")
+        print("Finished importing playlists.")
     }
     
     
     func importITunesTracks() {
+        print("About to import tracks.")
         let moc = persistentContainer.newBackgroundContext()
         moc.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         moc.undoManager = nil
@@ -212,6 +214,7 @@ class ITunesImporter {
             _ = createTrack(from: track, in: moc)
         }
         try! moc.save()
+        print("Finished importing tracks.")
     }
     
     
